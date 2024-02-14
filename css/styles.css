@@ -1,0 +1,253 @@
+/* navbar css  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* colors  */
+  --blue-color: #2596be;
+  --white: #fff;
+  --light-grey: #f5f5f5;
+  --footer-dark-bg: #353535;
+}
+
+body {
+  font-family: 'poppins';
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+#top-header {
+  height: 100px;
+  background-color: var(--light-grey);
+  /* border: 2px solid black; */
+  box-shadow: 5px 5px 5px var(--footer-dark-bg);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 999;
+  position: sticky;
+  top: 0;
+}
+
+.logo-top a img {
+  width: 300px;
+}
+
+.menu-bar {
+  /* background-color: var(--blue-color); */
+  margin-right: 20px;
+  z-index: 999;
+}
+
+.menu-bar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  list-style-type: none;
+  
+}
+
+.menu-bar ul li {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+  text-align: center;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-bar ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.menu-bar ul li a:hover {
+  color: var(--blue-color);
+}
+
+.submenu-1 {
+  display: none;
+  transition: all 1s ease-in-out;
+
+  z-index: 999;
+}
+.submenu-1 ul li a{
+  font-size: 1rem;
+}
+
+.menu-bar ul li:hover .submenu-1 {
+  display: block;
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px grey;
+
+  position: absolute;
+  margin-top: 10px;
+  /* margin-left: -50px; */
+  transform: translatex(0%);
+  /* width: 250px; */
+}
+
+.menu-bar ul li:hover .submenu-1 ul {
+  display: block;
+  margin: 5px;
+}
+
+/* sub menu css  */
+.submenu-2 {
+  display: none;
+  z-index: 999;
+}
+.submenu-2 ul li a{
+  font-size: 1rem;
+}
+
+.hover-me:hover .submenu-2 {
+  display: block;
+  background-color: lightgray;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 1px solid black;
+  /* border-left: 1px solid black; */
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 10px;
+  /* margin-left: 200px; */
+  transform: translatex(65%);
+  width: 230px;
+  /* padding: 5px; */
+}
+
+.submenu-3 {
+  display: none;
+  z-index: 999;
+}
+.submenu-3 ul li a{
+  font-size: 0.9rem;
+}
+
+.hover-me-1:hover .submenu-3 {
+  display: block;
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px grey;
+
+  position: absolute;
+  /* top: 10px; */
+  margin-top: -15px;
+  margin-left: 200px;
+
+  width: 180px;
+  /* padding: 5px; */
+}
+
+.burger {
+  display: none;
+}
+
+@media (max-width:1100px) {
+  .burger {
+      display: block;
+      margin-right: 10px;
+  }
+
+  .menu-bar {
+      display: none;
+  }
+
+  .logo-top a img {
+      width: 50%;
+  }
+
+  .menu-bar ul{
+      flex-direction: column;
+  }
+  .nav-active {
+      display: block;
+      position: absolute;
+      top: 100px;
+      background-color: var(--light-grey);
+      width: 100%;
+  }
+  .menu-bar ul li:hover .submenu-1{
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      margin-left: 0;
+      align-items: center;
+  }
+  .hover-me:hover .submenu-2 {
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-left: 0;
+      margin-top: 0;
+      transform: translatex(0%);
+  }
+  .hover-me-1:hover .submenu-3{
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-left: 0;
+      margin-top: 0;
+      
+  }
+}
+/* navbar css end  */
+
+
+/* slider css  */
+.slider-container {
+  margin: 20px 0px;
+  position: relative;
+  width: 100%;
+  height: 20%;
+
+  box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);
+}
+.slid-img {
+  display: none;
+
+  width: 100%;
+  height: 100%;
+
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: auto;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  user-select: none;
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+@media (max-width:600px){
+  .slider-container{
+      height: 40%;
+  }
+}
+/* slider css end  */

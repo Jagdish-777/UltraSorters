@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 30%;
+
+            box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);
+        }
+        .slid-img {
+            display: none;
+
+            width: 100%;
+            height: 100%;
+
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: auto;
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 20px;
+            user-select: none;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+        @media (max-width:600px){
+            .slider-container{
+                height: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <img class="slid-img" src="../Images/Home/home1.jpg" alt="">
+        <img class="slid-img" src="../Images/Home/DSC_0708.jpg" alt="">
+        <img class="slid-img" src="../Images/Home/person.png" alt="">
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+
+    <script>
+        var index_value = 0;
+
+        function slideShow() {
+            var x = 0;
+            setTimeout(slideShow, 2500); // Call slideShow function recursively every 2500 milliseconds
+            const slide_img = document.querySelectorAll(".slid-img");
+
+            for (x = 0; x < slide_img.length; x++) {
+                slide_img[x].style.display = "none";
+            }
+            index_value++;
+            if (index_value > slide_img.length) {
+                index_value = 1;
+            }
+            if (index_value <= 0) {
+                index_value = slide_img.length;
+            }
+            
+            slide_img[index_value - 1].style.display = "block";
+        }
+
+        // Start the slideshow when the page loads
+        slideShow();
+
+        // Function to move slide left or right
+        function moveSlide(n) {
+            index_value += n;
+            slideShow();
+        }
+    </script>
+</body>
+</html>
