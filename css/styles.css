@@ -301,7 +301,9 @@ body {
   font-family: "Poppins", sans-serif;
 
   overflow: hidden;
-  background-color: rgb(221, 218, 218);
+
+  background: rgb(214,214,214);
+background: linear-gradient(9deg, rgba(214,214,214,1) 0%, rgba(255,255,255,1) 100%);
 }
 .sub-home-about{
   width: 50%;
@@ -368,7 +370,7 @@ body {
   color: black;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900.33333px){
   .flex{
     flex-direction: column;
   }
@@ -406,7 +408,7 @@ body {
   
 
   flex-direction: column;
-  border: 1px  solid black;
+  /* border: 1px  solid black; */
 
   transition: all 0.4s ease;
   background-color: rgb(221, 218, 218);
@@ -415,6 +417,9 @@ body {
   -webkit-box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.75);
+
+  background: rgb(214,214,214);
+background: linear-gradient(9deg, rgba(214,214,214,1) 0%, rgba(255,255,255,1) 100%);
 
 }
 .mvp-sub .mvp-image{
@@ -468,4 +473,224 @@ body {
 
 }
 /* <!-- mission vission and persons behinf section home  css end */
+
+/* <!-- pts section css  start  --> */
+.pts-section{
+  background: rgb(214,214,214);
+  background: linear-gradient(9deg, rgba(214,214,214,1) 0%, rgba(255,255,255,1) 100%);
+  width: 100%;
+  margin: 20px 0px;
+
+  overflow: hidden;
+}
+.pts-sub{
+  width: 50%;
+  overflow: hidden;
+}
+.pts-sub img{
+  width: 100%;
+  overflow: hidden;
+}
+.quality-secton{
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  overflow: hidden;
+
+}
+.pts-quality{
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  /* border: 1px solid black; */
+
+  border-radius: 5px;
+
+  justify-content: space-between;
+  background-color: #fff;
+
+  transition: all 0.4s ease;
+}
+.pts-about{
+  text-align: center;
+}
+@media (max-width: 900.9999px){
+  .pts-quality{
+    flex-direction: row;
+  }
+  .pts-sub{
+    width: 95%;
+  }
+}
+/* <!-- pts section css end  --> */
+
+
+/* footer css start  */
+#footer{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-items: baseline;
+
+    /* background: rgb(70,70,70);
+    background: linear-gradient(0deg, rgba(70,70,70,1) 0%, rgba(98,98,98,1) 100%); */
+
+    background-color: #353535 !important;
+}
+.footer-sub{
+    width: 23%;
+    padding: 5px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+
+    transition: all 0.4s ease;
+}
+.content-footer i{
+    margin: 10px;
+    margin-left: 0px;
+    font-size: 1.2rem
+}
+.footer-socials i{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.4rem;
+
+    transition: all 0.4s ease;
+}
+.footer-socials i:hover{
+    color: #00b4d8 !important;
+    background-color: white;
+}
+.footer-heading h1{
+    padding: 10px 0px;
+
+    font-family: "poppins", sans-serif;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.content-footer{
+    font-family: "poppins", sans-serif;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+}
+.footer-2-link i{
+    font-size: 0.8rem;
+}
+.footer-2-link a{
+    color: #ffffff;
+    text-decoration: none;
+
+    transition: all 0.4s ease-in-out;
+}
+.footer-2-link a:hover{
+    color: #00b4d8 !important;
+    letter-spacing: 2px;
+}
+.footer-section-2{
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+}
+@media (max-width: 900.33333px){
+    .footer-sub{
+        width: 90%;
+        margin: 0px auto;
+    }
+    #footer{
+      flex-direction: column;
+    }
+}
+
+/* footer css end  */
+
+/* --------------------------------------------------------------------------------------------------------- */
+/* about us css start  */
+#about-container{
+  width: 100%;
+
+  background: linear-gradient(9deg, rgba(214,214,214,1) 0%, rgba(255,255,255,1) 100%);
+}
+.about-sub-section{
+  width: 50%;
+  height: 100%;
+}
+.about-content{
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 0px 10px;
+}
+.about-content h1{
+  padding: 10px 0px;
+}
+.about-content p{
+  padding: 10px 0px;
+}
+.about-image{
+  height: 500px;
+}
+.about-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.about-show-section{
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.tech-about{
+  padding: 5px;
+  margin: 5px;
+  
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+
+}
+@media (max-width: 900.33333px){
+  .about-sub-section{
+      width: 95%;
+      margin: 10px auto;
+  }
+  .about-container{
+      height: auto;
+  }
+  .about-show-section{
+      flex-direction: row;
+  }
+
+}
+
+/* mission and vision about us section css start */
+.mission-vision-container{
+  width: 100%;
+  margin: 40px 0px;
+
+  background: linear-gradient(9deg, rgba(214,214,214,1) 0%, rgba(255,255,255,1) 100%);
+}
+.sub-mission-vision{
+  width: 50%;
+  padding: 50px;
+}
+@media (max-width: 900.3333px){
+  .sub-mission-vision{
+      width: 90%;
+      padding: 30px;
+  }
+}
+/* mission and vision about us section css end  */
+
+
+/* about us css start  */
 

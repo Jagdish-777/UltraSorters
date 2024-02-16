@@ -8,6 +8,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <special-navbar></special-navbar>
@@ -33,7 +34,7 @@
             </h1>
             <p>COMAS CO LTD. is a south Korean based company and founded in 2009. We are dedicated to supply High precision Rice sorters, Grain sorters, Peanut sorter, Tea sorter packaging machinery and scales to customers spread across the world.</p>
 
-            <button class="btn"><a href="#">Explore More</a></button>
+            <button class="btn"><a href="./about.php">Explore More</a></button>
         </div>
     </div>
     <!-- home page shortlink to about page  end -->
@@ -85,43 +86,50 @@
     </div>
     <!-- mission vission and persons behinf section home end  -->
 
+    <!-- pts section start  -->
+    <div class="pts-section flex">
+        <div class="quality-secton flex pts-sub">
+            <div class="pts-quality flex">
+                <div class="pts-img">
+                    <img src="./Images/Home/quality.png" alt="">
+                </div>
+                <div class="pts-about">
+                    <h2>Quality</h2>
+                    <hr>
+                    <h2>Products</h2>
+                </div>
+            </div>
+            <div class="pts-quality flex">
+                <div class="pts-img">
+                    <img src="./Images/Home/technology.png" alt="">
+                </div>
+                <div class="pts-about">
+                    <h2>Advanced</h2>
+                    <hr>
+                    <h2>Technology</h2>
+                </div>
+            </div>
+            <div class="pts-quality flex">
+                <div class="pts-img">
+                    <img src="./Images/Home/support.png" alt="">
+                </div>
+                <div class="pts-about">
+                    <h2>Customer</h2>
+                    <hr>
+                    <h2>Support</h2>
+                </div>
+            </div>
+        </div>
+        <div class="pts-image pts-sub">
+            <img src="./Images/Home/DSC_0708.jpg" alt="">
+        </div>
+    </div>
 
+    <!-- pts section end  -->
 
+    <special-footbar></special-footbar>
 
     <script src="components.js"></script>
     <script src="./js/app.js"></script>
-    <script>
-        var index_value = 1;
-
-        function slideShow() {
-            var x = 0;
-            setTimeout(slideShow, 2500); // Call slideShow function recursively every 2500 milliseconds
-            const slide_img = document.querySelectorAll(".slid-img");
-
-            for (x = 0; x < slide_img.length; x++) {
-                slide_img[x].style.display = "none";
-            }
-            
-            index_value++;
-            if (index_value > slide_img.length) {
-                index_value = 1;
-            }
-            if (index_value < 1) {
-                index_value = slide_img.length;
-            }
-            
-            slide_img[index_value - 1].style.display = "block";
-        }
-        
-
-        // Start the slideshow when the page loads
-        slideShow();
-
-        // Function to move slide left or right
-        function moveSlide(n) {
-            index_value += n;
-            slideShow();
-        }
-    </script>
 </body>
 </html>

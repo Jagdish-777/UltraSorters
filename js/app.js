@@ -21,3 +21,37 @@ burger.addEventListener('click', () => {
 });
 });
 
+// navbar js 
+var index_value = 1;
+
+        function slideShow() {
+            var x = 0;
+            setTimeout(slideShow, 2500); // Call slideShow function recursively every 2500 milliseconds
+            const slide_img = document.querySelectorAll(".slid-img");
+
+            for (x = 0; x < slide_img.length; x++) {
+                slide_img[x].style.display = "none";
+            }
+            
+            index_value++;
+            if (index_value > slide_img.length) {
+                index_value = 1;
+            }
+            if (index_value < 1) {
+                index_value = slide_img.length;
+            }
+            
+            slide_img[index_value - 1].style.display = "block";
+        }
+        
+
+        // Start the slideshow when the page loads
+        slideShow();
+
+        // Function to move slide left or right
+        function moveSlide(n) {
+            index_value += n;
+            slideShow();
+        }
+// navbar js end 
+
