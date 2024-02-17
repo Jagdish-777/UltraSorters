@@ -167,8 +167,8 @@ class SpecialNavBar extends HTMLElement{
 
                 </li>
 
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Technology</a></li>
+                <li><a href="./Gallery.php">Gallery</a></li>
+                <li><a href="./Technology.php">Technology</a></li>
                 <li><a href="#">Career</a></li>
                 <li><a href="#">Contact</a></li>
 
