@@ -207,6 +207,35 @@
         .controlsDesc3.active3 {
             display: block;
         }
+        .controlsDesc4 {
+            display: none;
+        }
+
+        .controlsDesc4.active4 {
+            display: block;
+        }
+        .controlsDesc5 {
+            display: none;
+        }
+
+        .controlsDesc5.active5 {
+            display: block;
+        }
+        .controlsDesc6 {
+            display: none;
+        }
+
+        .controlsDesc6.active6 {
+            display: block;
+        }
+        
+        .controlsDesc7 {
+            display: none;
+        }
+
+        .controlsDesc7.active7 {
+            display: block;
+        }
 
         @media screen and (max-width: 768px) {
             .flex {
@@ -359,7 +388,7 @@
                     <div class="technology">
                         <h1>Teledyne Dalsa Camera</h1>
                         <div class="technology-image selects">
-                            <img src="./Images/Gallery/camera_1.jpg" alt="No-Source!">
+                            <img src="./Images/Technology/camera_1.jpg" alt="No-Source!">
                         </div>
                         <div class="controlsDesc">
                             <ul>
@@ -374,7 +403,7 @@
                     <div class="technology">
                         <h1>Ejectors</h1>
                         <div class="technology-image selects2">
-                            <img src="./Images/Gallery/enject.jpg" alt="No-Source!">
+                            <img src="./Images/Technology/enject.jpg" alt="No-Source!">
                         </div>
                         <div class="controlsDesc2">
                             <ul>
@@ -388,37 +417,64 @@
                     <div class="technology">
                         <h1>Air Filters</h1>
                         <div class="technology-image selects3">
-                            <img src="./Images/Gallery/filter.jpg" alt="No-Source!">
+                            <img src="./Images/Technology/Air-filter.jpeg" alt="No-Source!">
                         </div>
                         <div class="controlsDesc3">
                             <ul>
                                 <li>SMC - Japan Made air filters with 0.01 and 0.001 accuracy & Digital Air regulators.
-                                <li>
                             </ul>
                         </div>
                     </div>
 
 
                     <div class="technology">
-                        <h1>Teledyne Dalsa Camera</h1>
-                        <div class="technology-image">
-                            <img src="./Images/Gallery/camera_1.jpg" alt="No-Source!">
+                        <h1>LED</h1>
+                        <div class="technology-image selects4">
+                            <img src="./Images/Technology/led.jpg" alt="No-Source!">
+                        </div>
+                        <div class="controlsDesc4">
+                            <ul>
+                                <li>CREE's are super high-performing, energy-efficient LEDs which provide a crisp, but low-glare output.</li>
+                                <li>CREE-USA make Broad band, Long Life, Highly Bright LED Lamps provides clear vision to Cameras.</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="technology">
-                        <h1>Ejectors</h1>
-                        <div class="technology-image">
-                            <img src="./Images/Gallery/enject.jpg" alt="No-Source!">
+                        <h1>Wireless Control</h1>
+                        <div class="technology-image selects5">
+                            <img src="./Images/Technology/wireless.jpeg" alt="No-Source!">
+                        </div>
+                        <div class="controlsDesc5">
+                            <ul>
+                                <li>Wireless control system to monitor machine remotely through Android Phones/TAB/PC/Laptop.</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="technology">
-                        <h1>Air Filters</h1>
-                        <div class="technology-image">
-                            <img src="./Images/Gallery/filter.jpg" alt="No-Source!">
+                        <h1>SMPS</h1>
+                        <div class="technology-image selects6">
+                            <img src="./Images/Technology/Smps.jpeg" alt="No-Source!">
+                        </div>
+                        <div class="controlsDesc6">
+                            <ul>
+                                <li>All SMPS from COSEL - Japan</li>
+                            </ul>
                         </div>
                     </div>
-
-
+                    <div class="technology">
+                        <h1>Controller</h1>
+                        <div class="technology-image selects7">
+                            <img src="./Images/Technology/controller1.jpg" alt="No-Source!">
+                        </div>
+                        <div class="controlsDesc7">
+                            <ul>
+                                <li>Most advanced user friendly Multi tasking controller with 12 inch display and linux operating system to ensure fastest and stable operation.</li>
+                                <li>Pixel by pixel real time auto calibration capability for precise and accurate sorting.</li>
+                                <li>Individual configuration for primary, secondary and tertiary grain runs.</li>
+                                <li>Self Diagnosis and alarm monitoring capability for easy maintanance.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -458,6 +514,27 @@
         pic4.addEventListener('click', () => {
             event4.classList.toggle('active4');
             pic4.classList.toggle('toggle');
+        })
+
+        let pic5 = document.querySelector('.selects5');
+        let event5 = document.querySelector('.controlsDesc5');
+        pic4.addEventListener('click', () => {
+            event5.classList.toggle('active5');
+            pic5.classList.toggle('toggle');
+        })
+
+        let pic6 = document.querySelector('.selects6');
+        let event6 = document.querySelector('.controlsDesc6');
+        pic4.addEventListener('click', () => {
+            event6.classList.toggle('active6');
+            pic6.classList.toggle('toggle');
+        })
+
+        let pic7 = document.querySelector('.selects7');
+        let event7 = document.querySelector('.controlsDesc7');
+        pic4.addEventListener('click', () => {
+            event7.classList.toggle('active7');
+            pic7.classList.toggle('toggle');
         })
     </script>
 

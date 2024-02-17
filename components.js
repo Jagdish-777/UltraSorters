@@ -91,6 +91,12 @@ class SpecialfootBar extends HTMLElement{
     </div>
 
 </footer>
+<section id="bottom-footer-section">
+    <p>&#169<a href="#">COMAAS CO LTD</a> All Rights Reserved </p>
+    <p class="bootom-footer-left">
+        Designed By - <a href="#">Saanvika Software Solution</a>
+    </p>
+</section>
         `
     }
 }

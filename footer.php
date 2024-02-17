@@ -105,6 +105,30 @@
                 margin: 0px auto;
             }
         }
+
+
+        #bottom-footer-section{
+            background-color: #353535 !important;
+            border-top: 0.5px solid white;
+            padding: 10px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #bottom-footer-section p{
+            color: white;
+            display: inline-block;
+            margin-left: 20px;
+            padding: 10px;
+
+            font-size: 0.8rem;
+        }
+        #bottom-footer-section p a{
+            color: white;
+            /* text-decoration: none; */
+        }
     </style>
 </head>
 <body>
@@ -199,6 +223,12 @@
     </div>
 
 </footer>
+<section id="bottom-footer-section">
+    <p>&#169<a href="#">COMAAS CO LTD</a> All Rights Reserved </p>
+    <p class="bootom-footer-left">
+        Designed By - <a href="#">Saanvika Software Solution</a>
+    </p>
+</section>
 
 
 
