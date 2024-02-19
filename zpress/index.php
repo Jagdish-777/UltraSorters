@@ -1,12 +1,12 @@
 <?php
-// session_start();
+session_start();
 
-// // Check if user is not logged in
-// if (!isset($_SESSION['username'])) {
-//     // Redirect user to the login page
-//     header("Location: login.php");
-//     exit();
-// }
+// Check if user is not logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect user to the login page
+    header("Location: login.php");
+    exit();
+}
 
 include('./connections/dbconnect.php');
 include('includes/header.php');

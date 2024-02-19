@@ -1,3 +1,7 @@
+<?php
+include('./zpress/connections/dbconnect.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -430,18 +434,28 @@
     </div>
 
     <section id="product-details">
+        <?php
+        include('./zpress/connections/functions.php');
+        // $new = $_GET['page'];
+        $new = "RGB SORTER";
+        $Sorter_details = selectProduct('products',$new);
+
+
+        foreach($Sorter_details as $row => $header){ ?>
         <div class="product-details-sub">
-            <img src="./Images/products/RGB.png" alt="">
+            <img src="./Images/products/<?= $header['image'] ?>" alt="">
         </div>
         <div class="product-details-sub product-details-right">
-            <h2>Product Description:</h2>
+            <?= $header['product_description'] ?>
+            <!-- <h2>Product Description:</h2>
             <ul>
                 <li>Simultaneously Sorting MULTI color defects of grain with <strong>online Rejection Separation</strong>.</li>
                 <li>Able to Sort Multi grains with high Prrecessiom.</li>
                 <li>RGB sorter is available with <strong>64-128-192-256-320-384-448</strong> Channels.</li>
                 <li>Pixel by pixel which ensures highly precise, accurate & consistent performance throughout the life of machine.</li>
-            </ul>
+            </ul> -->
         </div>
+        <?php } ?>
 
     </section>
 

@@ -60,7 +60,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./about_us.php" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Insert About</p>
                 </a>
@@ -72,7 +72,7 @@
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Courses
+                Products
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -80,13 +80,13 @@
               <li class="nav-item">
                 <a href="courses1.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Courses</p>
+                  <p>View Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./courses.php" class="nav-link">
+                <a href="./products.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Insert Courses</p>
+                  <p>Insert Products</p>
                 </a>
               </li>
             </ul>
