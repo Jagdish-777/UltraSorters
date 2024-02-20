@@ -35,16 +35,16 @@ class SpecialfootBar extends HTMLElement{
         </div>
         <div class="content-footer">
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">RGB Sorter</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="products.php?page=RGB SORTER">RGB Sorter</a>
             </div>
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Ultra Sorter</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="products.php?page=ULTIMA SORTER">Ultra Sorter</a>
             </div>
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Ultima Sorter</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="products.php?page=ULTRA SORTER">Ultima Sorter</a>
             </div>
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Falcon Sorter</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="products.php?page=FALCON SORTER">Falcon Sorter</a>
             </div>
             <div class="footer-2-link">
                 <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Packing Machinery</a>
@@ -125,7 +125,7 @@ class SpecialNavBar extends HTMLElement{
                                                 class="fa-solid fa-angle-right"></i>
                                             <div class="submenu-3">
                                                 <ul>
-                                                    <li class="hover-me"><a href="#">Rgb Sorter</a></li>
+                                                    <li class="hover-me"><a href="products.php?page=RGB SORTER">Rgb Sorter</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -133,17 +133,17 @@ class SpecialNavBar extends HTMLElement{
                                                 class="fa-solid fa-angle-right"></i>
                                             <div class="submenu-3">
                                                 <ul>
-                                                    <li class="hover-me"><a href="#">Ultima Sorter</a></li>
-                                                    <li class="hover-me"><a href="#">Ultra Sorter</a></li>
+                                                    <li class="hover-me"><a href="products.php?page=ULTIMA SORTER">Ultima Sorter</a></li>
+                                                    <li class="hover-me"><a href="products.php?page=ULTRA SORTER">Ultra Sorter</a></li>
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li><a href="#">Dry Fruit Sorter</a></li>
+                                        <li><a href="products.php?page=FALCON SORTER">Dry Fruit Sorter</a></li>
                                         <li class="hover-me-1"><a href="#">Quartz Sorter</a><i
                                                 class="fa-solid fa-angle-right"></i>
                                             <div class="submenu-3">
                                                 <ul>
-                                                    <li class="hover-me"><a href="#">Falcon Sorter</a></li>
+                                                    <li class="hover-me"><a href="products.php?page=FALCON SORTER">Falcon Sorter</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -151,7 +151,7 @@ class SpecialNavBar extends HTMLElement{
                                                 class="fa-solid fa-angle-right"></i>
                                             <div class="submenu-3">
                                                 <ul>
-                                                    <li class="hover-me"><a href="#">Falcon Sorter</a></li>
+                                                    <li class="hover-me"><a href="products.php?page=FALCON SORTER">Falcon Sorter</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -159,7 +159,7 @@ class SpecialNavBar extends HTMLElement{
                                                 class="fa-solid fa-angle-right"></i>
                                             <div class="submenu-3">
                                                 <ul>
-                                                    <li class="hover-me"><a href="#">Falcon Sorter</a></li>
+                                                    <li class="hover-me"><a href="products.php?page=FALCON SORTER">Falcon Sorter</a></li>
                                                 </ul>
                                             </div>
                                         </li>

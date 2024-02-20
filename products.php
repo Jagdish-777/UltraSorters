@@ -1,5 +1,6 @@
 <?php
-include('./zpress/connections/dbconnect.php');
+include('zpress/connections/dbconnect.php');
+include('zpress/connections/functions.php');
 
 ?>
 <!DOCTYPE html>
@@ -426,18 +427,23 @@ include('./zpress/connections/dbconnect.php');
 <body>
     <special-navbar></special-navbar>
 
+    <?php
+        
+        $new = $_GET['page'];
+    ?>
+
     <div class="top-bar-section">
         <img src="./images/Home/home1.jpg" alt="No Image">
         <h1 class="top-bar-heading">
-            Products
+            <?=$new ?>
         </h1>
     </div>
 
     <section id="product-details">
         <?php
-        include('./zpress/connections/functions.php');
+        
         // $new = $_GET['page'];
-        $new = "RGB SORTER";
+        // $new = "ULTIMA SORTER";
         $Sorter_details = selectProduct('products',$new);
 
 

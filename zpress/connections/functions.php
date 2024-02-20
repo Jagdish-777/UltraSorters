@@ -1,18 +1,5 @@
 <?php
-include('./connections/dbconnect.php');
-
-// function selectTabel($table) {
-// 	global $con;
-    
-//     $query = "select * from $tabel";
-
-//     $report = mysqli_query($conn, $query);
-//     $result = array();
-//     while($queryreturn = mysqli_fetch_assoc($report)){
-//         $result[] = $queryreturn;
-//     }
-//     return $result;
-// }
+include('dbconnect.php');
 
 // include('./includes/connect.php');
 function selectProduct($table,$name){
