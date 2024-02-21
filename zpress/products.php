@@ -131,6 +131,78 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
+<div class="container mt-5">
+        <h2 class="mb-4">Display Products</h2>
+        <div class="table-responsive">
+            <table id="example" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Subcategory</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $select_query = "
+                    SELECT 
+                        p.id,
+                        p.product_name,
+                        p.product_description,
+                        pc.cat_name AS category_name,
+                        psc.sub_cat_name AS subcategory_name,
+                        p.image
+                    FROM products p
+                    INNER JOIN product_category pc ON p.product_category = pc.id
+                    INNER JOIN product_sub_category psc ON p.product_sub_category = psc.id
+                    ";
+
+                    $result_query = mysqli_query($con, $select_query);
+
+                    if ($result_query) {
+                        $serial_number = 1; // Initialize the serial number
+
+                        foreach ($result_query as $row) {
+                            $id = $row['id'];
+                            $name = $row['product_name'];
+                            $description = $row['product_description'];
+                            $category = $row['category_name'];
+                            $subcategory = $row['subcategory_name'];
+                            $image = $row['image'];
+
+                            echo '<tr>
+                                <td>' . $serial_number++ . '</td>
+                                <td>' . $name . '</td>
+                                <td>' . $description . '</td>
+                                <td>' . $category . '</td>
+                                <td>' . $subcategory . '</td>
+                                <td><img src="../Images/Products/' . $image . '" alt="product_image" width="50"></td>
+                                <td>
+                                    <button class="btn btn-primary"><a href="update_products.php?edit_id=' . $id . '" class="text-light">Edit</a></button>
+                                    <button class="btn btn-danger"><a href="products.php?delete_id=' . $id . '" class="text-light">Delete</a></button>
+                                </td>
+                            </tr>';
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DataTables JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+
 <?php
 include('includes/footer.php');
 

@@ -10,258 +10,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/styles.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        * {
-            --primary-color: #3498db;
-            --primary-2: rgb(216, 232, 245);
-        }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            margin: 0px;
-            padding: 0px;
-            font-size: 16px;
-            box-sizing: border-box;
-            min-height: 100vh;
-        }
-        /* top bar css  */
-        .top-bar-section {
-            position: relative;
-            left: 0;
-            width: 100%;
-            z-index: -1;
-            height: 300px;
-
-        }
-
-        .top-bar-section img {
-            width: 100%;
-            height: 100%;
-
-        }
-
-        .top-bar-section h1 {
-            color: #fff;
-            font-family: poppins;
-            font-size: 2rem;
-            font-weight: 700;
-            left: 50%;
-            position: absolute;
-            text-shadow: 2px 2px 4px #00000080;
-            top: 50%;
-            transform: translate(-50%, -50%);
-
-        }
-        /* topbar css end   */
-
-        section {
-            margin: 0px auto;
-            background-color: var(--primary-2);
-            background: linear-gradient(0deg, rgba(214, 214, 214, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .flex {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        #Gallery-Products {
-            margin: 0px auto;
-            padding: 30px auto;
-            padding-top: 30px;
-            padding-bottom: 30px;
-
-            flex-wrap: wrap;
-        }
-
-        .gallery {
-            overflow: hidden;
-            justify-content: space-between;
-            border: 1px solid black;
-            width: 25%;
-            margin: 10px;
-            background-color: #fff;
-
-            border-radius: 10px 15px;
-        }
-
-        .gallery:hover {
-            border-radius: 15px 30px;
-            box-shadow: 5px 10px rgb(104, 187, 243);
-        }
-
-        .image-gallery {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            transition: transform .2s;
-        }
-
-        .image-gallery:hover {
-            transform: scale(1.1);
-        }
-
-        .image-gallery img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .gallery-heading h1 {
-            text-decoration: underline;
-            padding: 10px;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-
-        }
-
-        .gallery-paragraph p {
-            padding: 10px;
-            font-size: 1rem;
-
-        }
-
-        .space {
-            margin: 10px;
-        }
-
-        /* grains section css */
-        .sub-Grains {
-            width: 50%;
-            overflow: hidden;
-            font-size: 1rem;
-        }
-
-        #Grains .Grains-Heading {
-            font-size: 2rem;
-            padding: 20px;
-            text-align: center;
-            text-decoration: underline;
-        }
-
-        .sub-Grains img {
-            width: 100%;
-        }
-
-        .Technology-heading {
-            text-decoration: underline;
-            padding: 10px;
-        }
-        .Grains-right{
-            align-items: start;
-        }
-
-        .Grains-content {
-            box-sizing: border-box;
-            padding: 10px;
-        }
-        .Grains-Technology{
-            align-items: start;
-        }
-        .Grains-Paragraph{
-            padding: 10px;
-        }
-
-        .technology-image {
-            overflow: hidden;
-        }
-
-        .technology-image img {
-            width: 50%;
-        }
-
-        .technology {
-            width: 30%;
-        }
-
-        .technology h1 {
-            font-size: 1rem;
-
-        }
-
-        .controlsDesc {
-            display: none;
-        }
-
-        .controlsDesc.active {
-            display: block;
-        }
-
-        .controlsDesc2 {
-            display: none;
-        }
-
-        .controlsDesc2.active2 {
-            display: block;
-        }
-
-        .controlsDesc3 {
-            display: none;
-        }
-
-        .controlsDesc3.active3 {
-            display: block;
-        }
-        .controlsDesc4 {
-            display: none;
-        }
-
-        .controlsDesc4.active4 {
-            display: block;
-        }
-        .controlsDesc5 {
-            display: none;
-        }
-
-        .controlsDesc5.active5 {
-            display: block;
-        }
-        .controlsDesc6 {
-            display: none;
-        }
-
-        .controlsDesc6.active6 {
-            display: block;
-        }
-        
-        .controlsDesc7 {
-            display: none;
-        }
-
-        .controlsDesc7.active7 {
-            display: block;
-        }
-
-        @media screen and (max-width: 768px) {
-            .flex {
-                flex-direction: column;
-            }
-
-            .image-gallery {
-                overflow: hidden;
-                transition: transform .2s;
-            }
-
-            .image-gallery:hover {
-                transform: scale(1.05);
-                /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-            }
-
-            .gallery {
-                width: 80%;
-            }
-
-            .sub-Grains {
-                width: 80%;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
@@ -434,8 +182,10 @@
                         </div>
                         <div class="controlsDesc4">
                             <ul>
-                                <li>CREE's are super high-performing, energy-efficient LEDs which provide a crisp, but low-glare output.</li>
-                                <li>CREE-USA make Broad band, Long Life, Highly Bright LED Lamps provides clear vision to Cameras.</li>
+                                <li>CREE's are super high-performing, energy-efficient LEDs which provide a crisp, but
+                                    low-glare output.</li>
+                                <li>CREE-USA make Broad band, Long Life, Highly Bright LED Lamps provides clear vision
+                                    to Cameras.</li>
                             </ul>
                         </div>
                     </div>
@@ -446,7 +196,8 @@
                         </div>
                         <div class="controlsDesc5">
                             <ul>
-                                <li>Wireless control system to monitor machine remotely through Android Phones/TAB/PC/Laptop.</li>
+                                <li>Wireless control system to monitor machine remotely through Android
+                                    Phones/TAB/PC/Laptop.</li>
                             </ul>
                         </div>
                     </div>
@@ -468,8 +219,10 @@
                         </div>
                         <div class="controlsDesc7">
                             <ul>
-                                <li>Most advanced user friendly Multi tasking controller with 12 inch display and linux operating system to ensure fastest and stable operation.</li>
-                                <li>Pixel by pixel real time auto calibration capability for precise and accurate sorting.</li>
+                                <li>Most advanced user friendly Multi tasking controller with 12 inch display and linux
+                                    operating system to ensure fastest and stable operation.</li>
+                                <li>Pixel by pixel real time auto calibration capability for precise and accurate
+                                    sorting.</li>
                                 <li>Individual configuration for primary, secondary and tertiary grain runs.</li>
                                 <li>Self Diagnosis and alarm monitoring capability for easy maintanance.</li>
                             </ul>
@@ -481,7 +234,71 @@
 
     </section>
 
+    <!-- testimonial slider start  -->
+    <div class="container11">
+        <section id="testim" class="testim">
+            <div class="testim-cover">
+                <div class="wrap">
+
+                    <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                    <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+
+                    <div id="testim-content" class="cont">
+                        <?php
+                        $var1 = 1;
+                        include('./zpress/connections/dbconnect.php');
+                        $testimonial_query = "Select * from `testimonials`";
+                        $testmonial_result = mysqli_query($con,$testimonial_query);
+
+                        foreach($testmonial_result as $row => $header){ $var1++ ;?>
+                        <?php if($var1 == 2 or $var1 == 1){?>
+                        <div class="active">
+                            <div class="img">
+                                <img src="./Images/Testimonials/<?= $header['client_image'] ?>" alt="">
+                            </div>
+                            <h2>
+                                <?= $header['client_name'] ?>
+                            </h2>
+                            <p>
+                                <?= $header['client_comment'] ?>
+                            </p>
+                        </div>
+                        <?php } else {?>
+                        <div>
+                            <div class="img">
+                                <img src="./Images/Testimonials/<?= $header['client_image'] ?>" alt="">
+                            </div>
+                            <h2>
+                                <?= $header['client_name'] ?>
+                            </h2>
+                            <p>
+                                <?= $header['client_comment'] ?>
+                            </p>
+                        </div>
+                        <?php } ?>
+                        <?php } ?>
+
+                    </div>
+                    <ul id="testim-dots" class="dots">
+                        <li class="dot active"></li>
+                        <?php 
+                        for($x = 0; $x <= $var1-3; $x++){
+                            echo "<li class='dot'></li>";
+                        }
+                        ?>
+
+                        <!-- <li class="dot"></li> -->
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- testimonial slider end -->
+
     <special-footbar></special-footbar>
+
+    <script src="https://use.fontawesome.com/1744f3f671.js"></script>
 
     <script src="components.js"></script>
     <script src="./js/app.js"></script>
@@ -514,28 +331,29 @@
         pic4.addEventListener('click', () => {
             event4.classList.toggle('active4');
             pic4.classList.toggle('toggle');
-        })
+        });
 
         let pic5 = document.querySelector('.selects5');
         let event5 = document.querySelector('.controlsDesc5');
-        pic4.addEventListener('click', () => {
+        pic5.addEventListener('click', () => {
             event5.classList.toggle('active5');
             pic5.classList.toggle('toggle');
-        })
+        });
 
         let pic6 = document.querySelector('.selects6');
         let event6 = document.querySelector('.controlsDesc6');
-        pic4.addEventListener('click', () => {
+        pic6.addEventListener('click', () => {
             event6.classList.toggle('active6');
             pic6.classList.toggle('toggle');
-        })
+        });
 
         let pic7 = document.querySelector('.selects7');
         let event7 = document.querySelector('.controlsDesc7');
-        pic4.addEventListener('click', () => {
+        pic7.addEventListener('click', () => {
             event7.classList.toggle('active7');
             pic7.classList.toggle('toggle');
-        })
+        });
+
     </script>
 
 </body>

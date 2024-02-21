@@ -393,23 +393,34 @@
 
     <div class="components">
         <h2>Components</h2>
+        <?php 
+        include("./zpress/connections/dbconnect.php");
+        $technology_query = "Select * from `technologies`";
+        $technology_result = mysqli_query($con,$technology_query);
+
+        foreach($technology_result as $row => $header){ ?>
+
         <div class="Advanced_Technology">
             <div>
-                <h4>Controller</h4>
+                <h4><?= $header['name'] ?></h4>
                 <div class="selects">
-                    <img src="./Images/Technology/controller1.jpg" alt="Controller photo">
+                    <img src="./Images/Technology/<?= $header['image'] ?>" alt="Controller photo">
                 </div>
                 <div class="controlsDesc">
-                    <ul>
+                <?= $header['description'] ?>
+                    <!-- <ul>
                         <li>Most advanced user friendly Multi tasking controller with 12 inch display and linux
                             operating system to ensure fastest and stable operation.</li>
                         <li>Pixel by pixel real time auto calibration capability for precise and accurate sorting.</li>
                         <li>Individual configuration for primary, secondary and tertiary grain runs.</li>
                         <li>Self Diagnosis and alarm monitoring capability for easy maintanance.</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
-            <div>
+        </div>
+
+            <?php } ?>
+            <!-- <div>
                 <h4>Teledyne Dalsa <br> Camera</h4>
                 <div class="selects2">
                     <img src="./Images/Technology/camera_1.jpg" alt="Teledyne Dalsa Camera photo">
@@ -523,14 +534,72 @@
                         <li>All SMPS from COSEL - Japan.</li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
-        </div>
+        
     </div>
+
+    <!-- testimonial slider start  -->
+    <div class="container11">
+        <section id="testim" class="testim">
+            <div class="testim-cover">
+                <div class="wrap">
+
+                    <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                    <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+
+                    <div id="testim-content" class="cont">
+                        <?php
+                        $var1 = 1;
+                        include('./zpress/connections/dbconnect.php');
+                        $testimonial_query = "Select * from `testimonials`";
+                        $testmonial_result = mysqli_query($con,$testimonial_query);
+
+                        foreach($testmonial_result as $row => $header){ $var1++ ;?>
+                            <?php if($var1 == 2 or $var1 == 1){?>
+                                <div class="active">
+                            <div class="img">
+                                <img src="./Images/Testimonials/<?= $header['client_image'] ?>"
+                                    alt="">
+                            </div>
+                            <h2><?= $header['client_name'] ?></h2>
+                            <p><?= $header['client_comment'] ?></p>
+                            </div>
+                            <?php } else {?>
+                                <div >
+                            <div class="img">
+                                <img src="./Images/Testimonials/<?= $header['client_image'] ?>"
+                                    alt="">
+                            </div>
+                            <h2><?= $header['client_name'] ?></h2>
+                            <p><?= $header['client_comment'] ?></p>
+                            </div>
+                            <?php } ?>
+                            <?php } ?>
+
+                    </div>
+                    <ul id="testim-dots" class="dots">
+                        <li class="dot active"></li>
+                        <?php 
+                        for($x = 0; $x <= $var1-3; $x++){
+                            echo "<li class='dot'></li>";
+                        }
+                        ?>
+
+                        <!-- <li class="dot"></li> -->
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- testimonial slider end -->
 
     <!-- java script -->
 
     <special-footbar></special-footbar>
+
+    <script src="https://use.fontawesome.com/1744f3f671.js"></script>
 
     <script src="components.js"></script>
     <script src="./js/app.js"></script>

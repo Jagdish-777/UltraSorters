@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -69,7 +68,65 @@
         </div>
     </div>
 
+    <!-- testimonial slider start  -->
+    <div class="container11">
+        <section id="testim" class="testim">
+            <div class="testim-cover">
+                <div class="wrap">
+
+                    <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                    <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+
+                    <div id="testim-content" class="cont">
+                        <?php
+                        $var1 = 1;
+                        include('./zpress/connections/dbconnect.php');
+                        $testimonial_query = "Select * from `testimonials`";
+                        $testmonial_result = mysqli_query($con,$testimonial_query);
+
+                        foreach($testmonial_result as $row => $header){ $var1++ ;?>
+                            <?php if($var1 == 2 or $var1 == 1){?>
+                                <div class="active">
+                            <div class="img">
+                                <img src="./Images/Testimonials/<?= $header['client_image'] ?>"
+                                    alt="">
+                            </div>
+                            <h2><?= $header['client_name'] ?></h2>
+                            <p><?= $header['client_comment'] ?></p>
+                            </div>
+                            <?php } else {?>
+                                <div >
+                            <div class="img">
+                                <img src="./Images/Testimonials/<?= $header['client_image'] ?>"
+                                    alt="">
+                            </div>
+                            <h2><?= $header['client_name'] ?></h2>
+                            <p><?= $header['client_comment'] ?></p>
+                            </div>
+                            <?php } } ?>
+
+
+                    </div>
+                    <ul id="testim-dots" class="dots">
+                        <li class="dot active"></li>
+                        <?php 
+                        for($x = 0; $x <= $var1-3; $x++){
+                            echo "<li class='dot'></li>";
+                        }
+                        ?>
+
+                        <!-- <li class="dot"></li> -->
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- testimonial slider end -->
+
     <special-footbar></special-footbar>
+
+    <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
     
     <script src="components.js"></script>
     <script src="./js/app.js"></script>

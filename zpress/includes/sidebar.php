@@ -78,15 +78,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="courses1.php" class="nav-link">
+                <a href="./products.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./products.php" class="nav-link">
+                <a href="./update_products.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Insert Products</p>
+                  <p>Update Products</p>
                 </a>
               </li>
             </ul>
@@ -191,6 +191,29 @@
                 <a href="./update_testimonials.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Update Testimonials</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Technologies
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./technologies.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Technologies</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./update_testimonials.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Update Technologies</p>
                 </a>
               </li>
             </ul>

@@ -630,8 +630,8 @@
 </head>
 
 <body>
-    <!------------Design By Pradeep Singh Tomar----------->
-    <div class="container">
+    
+    <div class="container11">
         <section id="testim" class="testim">
             <div class="testim-cover">
                 <div class="wrap">
@@ -640,20 +640,41 @@
                     <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
 
                     <div id="testim-content" class="cont">
-
-                        <div class="active">
+                        <?php
+                        $var1 = 1;
+                        include('../zpress/connections/dbconnect.php');
+                        $testimonial_query = "Select * from `testimonials`";
+                        $testmonial_result = mysqli_query($con,$testimonial_query);
+                        
+                        foreach($testmonial_result as $row => $header){ $var1++ ;?>
+                            <?php if($var1 == 2 or $var1 == 1){?>
+                                <div class="active">
                             <div class="img">
-                                <img src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/kartik-aaryan-1045198-08-12-2017-06-34-11.jpg"
+                                <img src="../Images/Testimonials/<?= $header['client_image'] ?>"
                                     alt="">
                             </div>
-                            <h2>Lorem P. Ipsum</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.</p>
-                        </div>
+                            <h2><?= $header['client_name'] ?></h2>
+                            <p><?= $header['client_comment'] ?></p>
+                            </div>
+                            <?php } else {?>
+                                <div >
+                            <div class="img">
+                                <img src="../Images/Testimonials/<?= $header['client_image'] ?>"
+                                    alt="">
+                            </div>
+                            <h2><?= $header['client_name'] ?></h2>
+                            <p><?= $header['client_comment'] ?></p>
+                            </div>
+                            <?php } } ?>
+
                     </div>
                     <ul id="testim-dots" class="dots">
                         <li class="dot active"></li>
+                        <?php 
+                        for($x = 0; $x <= $var1-3; $x++){
+                            echo "<li class='dot'></li>";
+                        }
+                        ?>
 
                         <!-- <li class="dot"></li> -->
                     </ul>
