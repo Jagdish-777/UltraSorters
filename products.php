@@ -541,28 +541,46 @@ include('zpress/connections/functions.php');
 
                 <tr>
                     <th>Modal</th>
+                    <?php
+                    if($new != 'RGB SORTER'){
+                        echo "<th>No of Chutes</th>
+                    <th>No. of cameras</th>";
+                    }?>
                     <th>CHANNELS</th>
                     <th>INPUT CAPACITY (ton/hr)</th>
                     <th>POWER (kw)</th>
+                    <?php
+                    if($new != 'RGB SORTER'){
+                        echo "<th>Air in cfm (kw)</th>";
+                    }?>
                     <th>COMPRESSOR (hp)</th>
                     <th>SIZE mm (LxWxH)</th>
                 </tr>
+                <?php 
+        include("./zpress/connections/dbconnect.php");
+        $technology_query = "Select * from `product_table` where `product_name` = '$new'";
+        $technology_result = mysqli_query($con,$technology_query);
+        foreach ($technology_result as $row => $header) : ?>
                 <tr>
-                    <td>RGB-S7</td>
-                    <td>448</td>
-                    <td>7-21</td>
-                    <td>5</td>
-                    <td>35</td>
-                    <td>2900x1415x1700</td>
+                    <td><?= $header['model'] ?></td>
+                    <?php
+                        if ($new != 'RGB SORTER') {
+                            echo "<td>" . $header['number_of_chutes'] . "</td>";
+                            echo "<td>" . $header['number_of_cameras'] . "</td>";
+                        }
+                    ?>
+                    <td><?= $header['channels'] ?></td>
+                    <td><?= $header['input_capacity'] ?></td>
+                    <td><?= $header['power'] ?></td>
+                    <?php
+                        if ($new != 'RGB SORTER') {
+                            echo "<td>" . $header['air_in_cfm'] . "</td>";
+                        }
+                    ?>
+                    <td><?= $header['compressor'] ?></td>
+                    <td><?= $header['size'] ?></td>
                 </tr>
-                <tr>
-                    <td>RGB-S6</td>
-                    <td>448</td>
-                    <td>7-21</td>
-                    <td>5</td>
-                    <td>35</td>
-                    <td>2900x1415x1700</td>
-                </tr>
+                <?php endforeach; ?>
         </table>
     </div>
 

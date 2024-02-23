@@ -28,6 +28,48 @@
     </section> -->
 
     <section id="Gallery-Products" class="flex">
+    <?php 
+        include("./zpress/connections/dbconnect.php");
+        $technology_query = "Select * from `gallery`";
+        $technology_result = mysqli_query($con,$technology_query);
+        foreach ($technology_result as $row => $header) : ?>
+        <div class="gallery">
+            <div class="image-gallery">
+                <img src="./Images/Gallery/<?= $header['image'] ?>" alt="">
+            </div>
+            <div class="gallery-heading">
+                <h1><?= $header['name'] ?></h1>
+            </div>
+            <div class="gallery-paragraph">
+                <p><?= $header['bottom_content'] ?></p>
+            </div>
+        </div>
+        <?php endforeach; ?>
+        <!-- <div class="gallery">
+            <div class="image-gallery">
+                <img src="./Images/Gallery/Ultima.png" alt="">
+            </div>
+            <div class="gallery-heading">
+                <h1>Grain Sorter (Ultima Sorter)</h1>
+            </div>
+            <div class="gallery-paragraph">
+                <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="image-gallery">
+                <img src="./Images/Gallery/UltraS.png" alt="">
+            </div>
+            <div class="gallery-heading">
+                <h1>Grain Sorter (Ultima Sorter)</h1>
+            </div>
+            <div class="gallery-paragraph">
+                <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
+            </div>
+        </div>
+
+
+
         <div class="gallery">
             <div class="image-gallery">
                 <img src="./Images/Gallery/RGB.png" alt="">
@@ -60,57 +102,7 @@
             <div class="gallery-paragraph">
                 <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
             </div>
-        </div>
-
-
-
-        <div class="gallery">
-            <div class="image-gallery">
-                <img src="./Images/Gallery/RGB.png" alt="">
-            </div>
-            <div class="gallery-heading">
-                <h1>Rice Sorter (RGB Sorter)</h1>
-            </div>
-            <div class="gallery-paragraph">
-                <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
-            </div>
-        </div>
-        <div class="gallery">
-            <div class="image-gallery">
-                <img src="./Images/Gallery/Ultima.png" alt="">
-            </div>
-            <div class="gallery-heading">
-                <h1>Grain Sorter (Ultima Sorter)</h1>
-            </div>
-            <div class="gallery-paragraph">
-                <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
-            </div>
-        </div>
-        <div class="gallery">
-            <div class="image-gallery">
-                <img src="./Images/Gallery/UltraS.png" alt="">
-            </div>
-            <div class="gallery-heading">
-                <h1>Grain Sorter (Ultima Sorter)</h1>
-            </div>
-            <div class="gallery-paragraph">
-                <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
-            </div>
-        </div>
-
-
-
-        <div class="gallery">
-            <div class="image-gallery">
-                <img src="./Images/Gallery/UltraS.png" alt="">
-            </div>
-            <div class="gallery-heading">
-                <h1>Grain Sorter (Ultima Sorter)</h1>
-            </div>
-            <div class="gallery-paragraph">
-                <p>Supplying most advanced color sorters which enables to get safe and clean food grains.</p>
-            </div>
-        </div>
+        </div> -->
 
     </section>
 
@@ -133,22 +125,31 @@
                         erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
                 </div>
                 <div class="Grains-Technology flex">
+                <?php 
+                    include("./zpress/connections/dbconnect.php");
+                    $technology_query = "Select * from `technologies`";
+                    $technology_result = mysqli_query($con,$technology_query);
+                    $var=0;
+                ?>
+                <?php foreach ($technology_result as $row => $header) : ?>
                     <div class="technology">
-                        <h1>Teledyne Dalsa Camera</h1>
-                        <div class="technology-image selects">
-                            <img src="./Images/Technology/camera_1.jpg" alt="No-Source!">
+                        <h1><?= $header['name'] ?></h1>
+                        <div class="technology-image selects selects<?= $var ?>">
+                            <img src="./Images/Technology/<?= $header['image'] ?>" alt="No-Source!">
                         </div>
-                        <div class="controlsDesc">
-                            <ul>
+                        <div class="controlsDesc controlsDesc<?= $var ?>">
+                        <?= $header['description'] ?>
+                            <!-- <ul>
                                 <li>BOA is a highly integrated optical inspection tool for controlling quality and
                                     increasing productivity.</li>
                                 <li>It comprises all the elements of an industrial machine vision system in a tiny smart
                                     camera style package..</li>
-
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
-                    <div class="technology">
+                <?php $var++; ?>
+                <?php endforeach; ?>
+                    <!-- <div class="technology">
                         <h1>Ejectors</h1>
                         <div class="technology-image selects2">
                             <img src="./Images/Technology/enject.jpg" alt="No-Source!">
@@ -227,7 +228,7 @@
                                 <li>Self Diagnosis and alarm monitoring capability for easy maintanance.</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -355,6 +356,19 @@
         });
 
     </script>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selects = document.querySelectorAll('.selects');
+            selects.forEach(select => {
+                select.addEventListener('click', function() {
+                    const index = this.classList[1].slice(-1);
+                    const controlsDesc = document.querySelector('.controlsDesc' + index);
+                    controlsDesc.classList.toggle('active');
+                    this.classList.toggle('toggle');
+                });
+            });
+        });
+    </script> -->
 
 </body>
 

@@ -1367,6 +1367,7 @@ body {
             background-color: #fff;
 
             border-radius: 10px 15px;
+            transition: all 0.4s ease;
         }
 
         .gallery:hover {

@@ -1,9 +1,42 @@
 <?php
-include('./includes/connect.php');
+session_start();
+
+// Check if user is not logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect user to the login page
+    header("Location: login.php");
+    exit();
+}
+
+include('./connections/dbconnect.php');
+include('includes/header.php');
+include('includes/navbar.php');
+include('includes/sidebar.php');
+
+?>
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+<?php
 
 $id = $_GET['edit_id'];
 $fetch = "select * from products where id=$id";
-$result = mysqli_query($conn,$fetch);
+$result = mysqli_query($con,$fetch);
 $row = mysqli_fetch_assoc($result);
 $name = $row['product_name'];
 $description = $row['product_description'];
@@ -24,11 +57,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $tempImage = $_FILES['image']['tmp_name'];
 
         // Move the new image
-        move_uploaded_file($tempImage, "./includes/images/$newImage");
+        move_uploaded_file($tempImage, "../Images/products/$newImage");
 
         //delete the existing image
-        if($existingImage && file_exists("./includes/images/$existingImage")){
-            unlink("./includes/images/$existingImage");
+        if($existingImage && file_exists("../Images/products/$existingImage")){
+            unlink("../Images/products/$existingImage");
         }
         //update new image into database
         $update = "update products set product_name='$name',product_description='$description',
@@ -40,26 +73,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         product_category='$category',product_sub_category='$sub_category',image='$existingImage' where id=$id";
     }
 
-    $result = mysqli_query($conn, $update);
+    $result = mysqli_query($con, $update);
 
     if ($result) {
         echo "<script>alert('Updated successfully.'); window.location.href = 'display_products.php';</script>";
     } else {
-        echo "<script>alert('Error: " . mysqli_error($conn) . "')</script>";
+        echo "<script>alert('Error: " . mysqli_error($con) . "')</script>";
     }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>update Product</title>
-    <!-- Bootstrap CSS (optional, you can use your own styling) -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 
 <div class="container mt-5">
     <h2 class="mb-4">Update Product</h2>
@@ -79,9 +102,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <label for="category">Category:</label>
             <select class="form-control" id="category" name="category">
                 <?php
-                    include('./includes/connect.php');
+                    
                     $query = "SELECT * FROM product_category";
-                    $result = mysqli_query($conn, $query);
+                    $result = mysqli_query($con, $query);
 
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['id'];
@@ -97,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <select class="form-control" id="subcategory" name="subcategory">
                 <?php
                     $query = "SELECT * FROM product_sub_category";
-                    $result = mysqli_query($conn, $query);
+                    $result = mysqli_query($con, $query);
 
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['id'];
@@ -135,5 +158,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 console.error(error);
             });
     </script>
-</body>
-</html>
+<?php
+include('includes/footer.php');
+
+?>

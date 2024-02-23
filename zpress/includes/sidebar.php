@@ -59,12 +59,6 @@
                   <p>View About</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Insert About</p>
-                </a>
-              </li>
             </ul>
           </li>
 
@@ -81,12 +75,6 @@
                 <a href="./products.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Products</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./update_products.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Update Products</p>
                 </a>
               </li>
             </ul>
@@ -125,15 +113,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./view_gallery.php" class="nav-link">
+                <a href="./gallery.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Gallery</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="gallery.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>insert Gallery</p>
                 </a>
               </li>
             </ul>
@@ -187,12 +169,6 @@
                   <p>View Testimonials</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./update_testimonials.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Update Testimonials</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -210,10 +186,21 @@
                   <p>View Technologies</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Product Specification
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./update_testimonials.php" class="nav-link">
+                <a href="./product_specification_table.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Update Technologies</p>
+                  <p> View Specification</p>
                 </a>
               </li>
             </ul>
