@@ -1,0 +1,277 @@
+*{
+    margin:0px;
+    padding: 0;
+    box-sizing: border-box;
+    /* colors */
+    --font-color:#ff6900;
+    --font-hover-color:#ff7454;
+    --navigation-background:#f9f9f4;
+    --font-color-navigation:#c21c20;
+    --nav-hover-background-light:#d0dae6;
+    --black:black;
+    --white:white;
+    --font-color:#ff6900;
+    --body-background-color:  rgb(232, 237, 242);
+    --background-color-upload-button: #1ABCA1;
+    --submit-button: #0099ff;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-background-color);
+}
+.vdc-career-header{
+    text-align: center;
+    font-size: 2rem;
+    text-decoration: underline;
+    font-weight: 600;
+    padding: 30px auto;
+}
+.form-careers{
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+}
+.content-area{
+    width: 75%;
+    float: none;
+    margin: 0 auto;
+}
+main{
+    display: block;
+    margin: 0;
+}
+article{
+    display: block;
+}
+.career-post-form{
+    margin: 0 0 50px;
+}
+.single-entry-content{
+    font-size: 16px;
+    line-height: 1.8;
+}
+.entry-content{
+    counter-reset:footnotes;
+}
+.forminator{
+    padding:0;
+}
+.forminator-row{
+    display: flex;
+    margin-bottom: 30px;
+}
+.forminator-field{
+    flex:1;
+    padding: 0 15px;
+}
+.forminator-field-sub{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.forminator-label{
+    color: #777771;
+    font-size: 12px;
+    font-weight: 700;
+    cursor:pointer;
+    display: block;
+    margin:0;
+    border: 0;
+    line-height: 1.7em;
+}
+.forminator-required{
+    color: red;
+}
+.forminator-input{
+    box-sizing: border-box;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    height: 40px;
+    min-height: unset;
+    max-height: unset;
+    display: block;
+    margin: 0;
+    padding: 9px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: #777771;
+    background-color: #ededed;
+    color: #000000;
+    line-height: 1.3em;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: inherit;
+}
+select{
+    line-height: 100%;
+    border-radius: 0;
+    cursor: pointer;
+    color: black;
+}
+.forminator-field-options{
+    position: relative;
+    width:100%;
+    box-sizing: border-box;
+    border-color: #777771;
+    background-color: #ededed;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 400px;
+    font-family: inherit;
+    /* max-height: 100px; Set max height to enable scrolling */
+    /* overflow-y: scroll;  Enable vertical scrolling */
+}
+.forminator-field-options:hover{
+    border: 1px solid rgb(147, 209, 238);
+}
+/* Style for the custom file upload container */
+.forminator-file-upload {
+            display: flex;
+            align-items: center;
+        }
+        /* Style for the custom file upload button */
+        .custom-file-upload-button {
+            background-color: var(--background-color-upload-button);
+            color: #FFFFFF;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 500;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 2px;
+            margin-right: 10px;
+            outline: 0;
+            text-decoration: none;
+            box-shadow: none;
+        }    
+        /* Style for the custom file input */
+        .custom-file-input {
+            display: none;
+        }
+        /* Style for the custom file upload span */
+        .custom-file-upload-span {
+            color: #777771;
+            font-size: 12px;
+            font-family: inherit;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            flex: 0 1 auto;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+        }
+        /* Additional styles for the file input button */
+        .forminator-upload {
+            width: 150px; /* Set the desired width */
+            height: 40px; /* Set the desired height */
+            opacity: 0; /* Make it invisible */
+            position: absolute;
+            z-index: -1;
+        }
+        /* Style for the container that holds the file input and custom button */
+        .forminator-upload-container {
+            position: relative;
+            overflow: hidden;
+        }
+        /* Hide the default file input button */
+        .forminator-upload {
+            display: none;
+        }
+.forminator-button{
+    width: auto;
+    min-width: 100px;
+    max-width: unset;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 0 0;
+    padding: 10px;
+    border: 0;
+    border-radius: 2px;
+    background-image: unset;
+    line-height: 1.45em;
+    text-align: center;
+    transition: .2s ease;
+}
+.forminator-textarea{
+    border-color: #777771;
+    background-color: #ededed;
+    color: #000000;
+    outline: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    width: 100%;
+    resize: vertical;
+    display: block;
+    margin: 0;
+    padding: 9px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    background-image: unset;
+    line-height: 20px;
+    transition: .2s ease;
+    font-family: inherit;
+    overflow: auto;
+}
+.forminator-input:hover{
+    border: 1px solid rgb(147, 209, 238);
+}
+.forminator-textarea:hover{
+    border: 1px solid rgb(147, 209, 238);
+}
+.forminator-text-description{
+    color: #777771;
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 400;
+    display: flex;
+    line-height: 1.5em;
+    margin:5px 0 0;
+    box-sizing: border-box;
+}
+.forminator-text-description>span{
+    min-width: 80px;
+    margin-right: 0px;
+    margin-left: auto;
+    text-align: right;
+    font-size: 12px;
+}
+.forminator-row:not(:last-child){
+    margin-bottom: 30px;
+}
+.forminator-submit-button{
+    background-color:var(--submit-button);
+    color: #FFFFFF;
+    border: transparent solid 2px;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 500;
+    outline: 0;
+    box-shadow: none;
+    text-decoration: none;
+}
+.forminator-submit-button:hover{
+    border:  2px solid black;
+}
+@media (max-width: 973px){
+    .forminator-row{
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding:0;
+    }
+    .form-careers{
+        padding: 0;
+    }
+    .forminator-field{
+        width: 100%;
+    }
+}

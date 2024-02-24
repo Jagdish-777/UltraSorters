@@ -130,7 +130,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./view_career.php" class="nav-link">
+                <a href="./career.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Career</p>
                 </a>

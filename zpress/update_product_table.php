@@ -36,7 +36,7 @@ include('includes/sidebar.php');
 
 $id = $_GET['edit_id'];
 $fetch = "SELECT * FROM product_table WHERE id=$id";
-$result = mysqli_query($conn, $fetch);
+$result = mysqli_query($con, $fetch);
 $row = mysqli_fetch_assoc($result);
 $name = $row['product_name'];
 $model = $row['model'];  
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             `number_of_cameras`='$new_number_of_cameras', `channels`='$new_channels', `input_capacity`='$new_input_capacity', `power`='$new_power',
             `air_in_cfm`='$new_air_in_cfm', `compressor`='$new_compressor', `size`='$new_size' WHERE id=$id";
         
-        $result = mysqli_query($conn, $update);
+        $result = mysqli_query($con, $update);
 
         if($result){
             echo "<script>alert('Updated successfully.'); window.location.href='product_specification_table.php';</script>";

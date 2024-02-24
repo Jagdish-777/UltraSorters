@@ -84,6 +84,11 @@ include('includes/sidebar.php');
                 <label for="image">Product Image:</label>
                 <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
             </div>
+            
+            <div class="form-group">
+                <label for="image">Product BgImage:</label>
+                <input type="file" class="form-control-file" id="image" name="bgimage" accept="image/*" required>
+            </div>
 
             <button type="submit" class="btn btn-primary" name="submit_product">Add Product</button>
         </form>
@@ -116,17 +121,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $image = $_FILES['image']['name'];
     $temp_image = $_FILES['image']['tmp_name'];
 
+    $bgimage = $_FILES['bgimage']['name'];
+    $temp_bgimage = $_FILES['bgimage']['tmp_name'];
+
     //move uploaded file
     move_uploaded_file($temp_image,"../Images/products/$image");
+    move_uploaded_file($temp_bgimage, "./Images/products/$bgimage");
 
     //insert query
-    $insert_query = "insert into products(product_name,product_description,product_category,product_sub_category,image) 
-    values('$name','$description',$category,$subcategory,'$image')";
-    $result = mysqli_query($con,$insert_query);
-    if($result){
-        echo "<script>alert('inserted successfully.')</script>";
-    }else{
-        echo "<script>alert('Error: " . mysqli_error($con) . "')</script>";
+    $insert_query = "insert into products(product_name,product_description,product_category,product_sub_category,image,bgImage) 
+    values('$name','$description',$category,$subcategory,'$image','$bgimage')";
+    $result = mysqli_query($con, $insert_query);
+    if ($result) {
+        echo "<script>alert('inserted successfully.'); window.location.href = 'products.php';</script>";
+        exit();
+    } else {
+        echo "<script>alert('Error in inserting'); window.location.href = 'products.php';</script>";
+        exit();
     }
 }
 ?>
@@ -143,6 +154,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <th scope="col">Category</th>
                         <th scope="col">Subcategory</th>
                         <th scope="col">Image</th>
+                        <th scope="col">Top Banner Image</th>
                         <th scope="col">Operations</th>
                     </tr>
                 </thead>
@@ -155,7 +167,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         p.product_description,
                         pc.cat_name AS category_name,
                         psc.sub_cat_name AS subcategory_name,
-                        p.image
+                        p.image,
+                        p.bgImage
                     FROM products p
                     INNER JOIN product_category pc ON p.product_category = pc.id
                     INNER JOIN product_sub_category psc ON p.product_sub_category = psc.id
@@ -173,6 +186,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $category = $row['category_name'];
                             $subcategory = $row['subcategory_name'];
                             $image = $row['image'];
+                            $bgImage = $row['bgImage'];
 
                             echo '<tr>
                                 <td>' . $serial_number++ . '</td>
@@ -181,6 +195,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <td>' . $category . '</td>
                                 <td>' . $subcategory . '</td>
                                 <td><img src="../Images/Products/' . $image . '" alt="product_image" width="50"></td>
+                                <td><img src="../Images/Products/' . $bgImage . '" alt="product_image" width="50"></td>
                                 <td>
                                     <button class="btn btn-primary"><a href="update_products.php?edit_id=' . $id . '" class="text-light">Edit</a></button>
                                     <button class="btn btn-danger"><a href="products.php?delete_id=' . $id . '" class="text-light">Delete</a></button>
@@ -202,6 +217,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $('#example').DataTable();
         });
     </script>
+
+
+<?php
+if (isset($_GET['delete_id'])) {
+    $id = $_GET['delete_id'];
+
+    // Select query to fetch images associated with the product
+    $select_query = "SELECT image, bgimage FROM products WHERE id=$id";
+    $result_query = mysqli_query($con, $select_query);
+
+    if ($result_query) {
+        $row = mysqli_fetch_assoc($result_query);
+        $image = $row['image'];
+        $bgimage = $row['bgimage'];
+
+        // Construct file paths for both images
+        $file_path1 = '../Images/products/' . $image;
+        $file_path2 = '../Images/products/' . $bgimage;
+
+        // Delete record from the database
+        $delete_query = "DELETE FROM products WHERE id=$id";
+        $result_query = mysqli_query($con, $delete_query);
+
+        if ($result_query) {
+            // Delete the image files if they exist
+            if (file_exists($file_path1)) {
+                unlink($file_path1);
+            }
+            if (file_exists($file_path2)) {
+                unlink($file_path2);
+            }
+
+            echo "<script>alert('Deleted successfully'); window.location.href = 'products.php';</script>";
+            exit();
+        } else {
+            echo "<script>alert('Error deleting record'); window.location.href = 'products.php';</script>";
+        }
+    } else {
+        echo "<script>alert('Error fetching images'); window.location.href = 'products.php';</script>";
+    }
+}
+?>
 
 <?php
 include('includes/footer.php');

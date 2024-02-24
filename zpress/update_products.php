@@ -25,14 +25,15 @@ include('includes/sidebar.php');
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Update Products</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-<?php
+    <?php
+include('./connections/dbconnect.php');
 
 $id = $_GET['edit_id'];
 $fetch = "select * from products where id=$id";
@@ -42,43 +43,59 @@ $name = $row['product_name'];
 $description = $row['product_description'];
 $category = $row['product_category'];
 $sub_category = $row['product_sub_category'];
-$existingImage = $row['image'];
+$existingImage1 = $row['image'];
+$existingImage2 = $row['bgImage'];
 
 //updating data into server
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $category = $_POST['category'];
-    $sub_category = $_POST['subcategory'];
+    $newName = $_POST['name'];
+    $newDescription = $_POST['description'];
+    $newCategory = $_POST['category'];
+    $newSub_category = $_POST['subcategory'];
 
-    //check if new image is uploaded or not
-    if(!empty($_FILES['image']['name'])){
-        $newImage = $_FILES['image']['name'];
-        $tempImage = $_FILES['image']['tmp_name'];
+    $newImage1 = handleFileUpload('image', $existingImage1);
+    $newImage2 = handleFileUpload('bgimage', $existingImage2);
 
-        // Move the new image
-        move_uploaded_file($tempImage, "../Images/products/$newImage");
+    if($newName!=$name || $newDescription!=$description || $newCategory!=$category || $newSub_category!=$sub_category || $newImage1!=$existingImage1 || $newImage2!=$existingImage2){
+        // Update database with new image filenames
+        $update_query = "UPDATE products SET product_name=?, product_description=?, product_category=?, product_sub_category=?, image=?, bgImage=? WHERE id=?";
+        $stmt = mysqli_prepare($con, $update_query);
+        mysqli_stmt_bind_param($stmt, "ssssssi", $newName, $newDescription, $newCategory, $newSub_category, $newImage1, $newImage2, $id);
+        $result = mysqli_stmt_execute($stmt);
 
-        //delete the existing image
-        if($existingImage && file_exists("../Images/products/$existingImage")){
-            unlink("../Images/products/$existingImage");
+        if ($result) {
+            echo "<script>alert('Updated successfully.'); window.location.href='products.php';</script>";
+            exit();
+            
+        } else {
+            echo "<script>alert('Error: Failed to update data.');</script>";
+            exit();
         }
-        //update new image into database
-        $update = "update products set product_name='$name',product_description='$description',
-        product_category='$category',product_sub_category='$sub_category',image='$newImage' where id=$id";
-
     }else{
-        // No new image uploaded, keep the existing image
-        $update = "update products set product_name='$name',product_description='$description',
-        product_category='$category',product_sub_category='$sub_category',image='$existingImage' where id=$id";
+        echo "<script>alert('no changes has been made'); window.location.href = 'products.php';</script>";
+        exit();
     }
 
-    $result = mysqli_query($con, $update);
+    
+}
 
-    if ($result) {
-        echo "<script>alert('Updated successfully.'); window.location.href = 'display_products.php';</script>";
+// Function to handle file upload
+function handleFileUpload($fieldName, $existingImage) {
+    if (!empty($_FILES[$fieldName]['name'])) {
+        $newImage = $_FILES[$fieldName]['name'];
+        $tempImage = $_FILES[$fieldName]['tmp_name'];
+
+        // Move the uploaded image
+        move_uploaded_file($tempImage, "../Images/products/$newImage");
+
+        // Delete the existing image
+        if ($existingImage && file_exists("../Images/products/$existingImage")) {
+            unlink("../Images/products/$existingImage");
+        }
+        return $newImage;
     } else {
-        echo "<script>alert('Error: " . mysqli_error($con) . "')</script>";
+        // If no new image uploaded, retain the existing image
+        return $existingImage;
     }
 }
 ?>
@@ -134,6 +151,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <div class="form-group">
             <label for="image">Product Image:</label>
             <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+        </div>
+
+        <div class="form-group">
+            <label for="image">Product BgImage:</label>
+            <input type="file" class="form-control-file" id="image" name="bgimage" accept="image/*">
         </div>
 
         <button type="submit" class="btn btn-primary" name="submit_product">Update Product</button>

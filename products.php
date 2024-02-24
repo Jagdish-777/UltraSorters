@@ -43,7 +43,7 @@ include('zpress/connections/functions.php');
             padding: 50px;
         }
         .product-details-right ul{
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
         .product-details-sub img{
             width: 80%;
@@ -431,16 +431,7 @@ include('zpress/connections/functions.php');
         
         $new = $_GET['page'];
     ?>
-
-    <div class="top-bar-section">
-        <img src="./images/Home/home1.jpg" alt="No Image">
-        <h1 class="top-bar-heading">
-            <?=$new ?>
-        </h1>
-    </div>
-
-    <section id="product-details">
-        <?php
+    <?php
         
         // $new = $_GET['page'];
         // $new = "ULTIMA SORTER";
@@ -448,6 +439,16 @@ include('zpress/connections/functions.php');
 
 
         foreach($Sorter_details as $row => $header){ ?>
+
+    <div class="top-bar-section">
+        <img src="./Images/products/<?= $header['bgImage']?>" alt="No Image">
+        <h1 class="top-bar-heading">
+            <?=$new ?>
+        </h1>
+    </div>
+
+    <section id="product-details">
+        
         <div class="product-details-sub">
             <img src="./Images/products/<?= $header['image'] ?>" alt="">
         </div>
