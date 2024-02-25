@@ -103,7 +103,7 @@
 </div>
         </div>
     </section>
-    <section class="sect2">
+    <section class="sect2" id="map">
         <div class="maps"><!-----flex------>
             <div class="maps-window"><!---flex---->
               <div class="maps-window2"><!----flex---->

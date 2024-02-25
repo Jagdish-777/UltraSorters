@@ -63,10 +63,10 @@ class SpecialfootBar extends HTMLElement{
         </div>
         <div class="content-footer">
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Team Experts</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="./about.php">Team Experts</a>
             </div>
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Persons Behind</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="./about.php">Persons Behind</a>
             </div>
         </div>
 
@@ -78,13 +78,13 @@ class SpecialfootBar extends HTMLElement{
         </div>
         <div class="content-footer">
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Contact</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="./contact.php">Contact</a>
             </div>
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">Career</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="./career.php">Career</a>
             </div>
             <div class="footer-2-link">
-                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="#">SiteMap</a>
+                <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="./contact.php#map">SiteMap</a>
             </div>
         </div>
 
@@ -92,9 +92,9 @@ class SpecialfootBar extends HTMLElement{
 
 </footer>
 <div id="bottom-footer-section">
-    <p>&#169<a href="#">COMAAS CO LTD</a> All Rights Reserved </p>
+    <p>&#169<a href="./index.php">COMAAS CO LTD</a> All Rights Reserved </p>
     <p class="bootom-footer-left">
-        Designed By - <a href="#">Saanvika Software Solution</a>
+        Designed By - <a href="https://saanvikasolutions.com/" target="_blank">Saanvika Software Solution</a>
     </p>
 </div>
         `
@@ -167,7 +167,7 @@ class SpecialNavBar extends HTMLElement{
                                 </div>
                             </li>
                             <li><a href="#">Packing Machinery</a></li>
-                            <li><a href="#">Scales</a></li>
+                            <li><a href="products.php?page=Scales">Scales</a></li>
                         </ul>
                     </div>
 

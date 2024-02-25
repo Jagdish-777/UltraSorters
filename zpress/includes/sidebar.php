@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <!-- <img src="assets/dist/img/user.png" alt="No Source" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">Dashboard</span>
+      <span class="brand-text font-weight-light">COMAAS</span>
     </a>
 
     <!-- Sidebar -->
@@ -201,6 +201,23 @@
                 <a href="./product_specification_table.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> View Specification</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Basic Details
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./basic_details.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> View Basic Details</p>
                 </a>
               </li>
             </ul>
