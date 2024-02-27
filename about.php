@@ -11,12 +11,20 @@
     <special-navbar></special-navbar>
 
     <section id="about-container" class="flex">
+    <?php 
+        include("./zpress/connections/dbconnect.php");
+        $about_query = "Select * from `aboutus` where `id` = 1";
+        $about_res = mysqli_query($con,$about_query);
+        $row = mysqli_fetch_assoc($about_res);
+
+        ?>
         <div class="about-sub-section about-content flex">
             <h1>
                 About Us:
             </h1>
             <p>
-                COMAS CO LTD., is a south Korean based company and founded in 2009. We are dedicated to supply High precision Rice sorters, Grain sorters, Peanut sorter, Tea sorters, packaging machinery and scales to customers spread across the world. We are pioneered in most advanced technology Sorter for all Food grains, Plastics and Quartz etc.., which uses latest AI algorithms. Our Color Sorter machines are designed with cutting edge technology for maximizing the profits of our customer with almost nil slippage of good grains into final rejection, lowest power consumption and highest productivity per chute.
+                <?= $row['content'] ?>
+                <!-- COMAS CO LTD., is a south Korean based company and founded in 2009. We are dedicated to supply High precision Rice sorters, Grain sorters, Peanut sorter, Tea sorters, packaging machinery and scales to customers spread across the world. We are pioneered in most advanced technology Sorter for all Food grains, Plastics and Quartz etc.., which uses latest AI algorithms. Our Color Sorter machines are designed with cutting edge technology for maximizing the profits of our customer with almost nil slippage of good grains into final rejection, lowest power consumption and highest productivity per chute. -->
             </p>
             <div class="about-show-section flex">
                 <div class="tech-about flex">
@@ -53,18 +61,18 @@
             </div>
         </div>
         <div class="about-sub-section about-image">
-            <img src="./Images/about.png" alt="No Source">
+            <img src="./Images/Home/<?= $row['image']?>" alt="No Source">
         </div>
     </section>
 
     <div class="mission-vision-container flex">
         <div class="sub-mission-vision">
             <h1>Our Mission</h1>
-            <p>To supply a world class High precision sorters for Food grains, Quartz, plastics, Minerals and packaging machinery, scales and Rice mill machinery to the Food processing industry in the world.</p>
+            <p><?= $row['our_mission'] ?></p>
         </div>
         <div class="sub-mission-vision">
             <h1>Our vision</h1>
-            <p>To become a Global Leader in Grain Sorting and packaging machinery Technology.</p>
+            <p><?= $row['our_vision'] ?></p>
         </div>
     </div>
 

@@ -5,31 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
+    <style>
+        .slider {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%; /* Default width */
+        }
+
+        .slides img {
+            width: 100vw; /* Adjusted to 100% of viewport width */
+            height: auto;
+            height: 500px;
+            object-fit: cover; /* Ensures the entire viewport width is covered */
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .slider {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slider {
+                width: 100%;
+            }
+        }
+    
+    </style>
 </head>
 <body>
     <special-navbar></special-navbar>
 
+    <section class="slider">
+        <button class="prev">&#10094;</button>
+        <div class="slides">
+        <?php 
+        include("./zpress/connections/dbconnect.php");
+        $slider_query = "Select * from `home`";
+        $slider_res = mysqli_query($con,$slider_query);
+        foreach ($slider_res as $row => $header) :
+        ?>
+            <!-- <img src="./Images/<?= $header['bgImage'] ?>" alt=""> -->
+            <img src="./Images/Home/<?= $header['bgImage'] ?>" alt="No Image">
+            <!-- <img src="./Images/slid1.jpg" alt="">
+            <img src="./Images/slid1.jpg" alt=""> -->
+            <!-- Add more images here -->
+        <?php endforeach; ?>
+        </div>
+        <button class="next">&#10095;</button>
+    </section>
+
+
     <!-- slider content home page  -->
-    <div class="slider-container">
-        <img class="slid-img" src="./Images/Home/home1.jpg" alt="No Image">
-        <img class="slid-img" src="./Images/Home/DSC_0708.jpg" alt="">
-        <img class="slid-img" src="./Images/Home/person.png" alt="">
-        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-        <a class="next" onclick="moveSlide(1)">&#10095;</a>
-    </div>
+    
     <!-- slider content end home page  -->
 
     <!-- home page shortlink to about page  -->
     <div class="link-aboutus-container flex">
+    <?php 
+        include("./zpress/connections/dbconnect.php");
+        $about_query = "Select * from `home`";
+        $about_res = mysqli_query($con,$about_query);
+        $row = mysqli_fetch_assoc($about_res);
+
+        ?>
         <div class="aboutus-image sub-home-about">
-            <img src="./Images/Home/home1.jpg" alt="">
+            <img src="./Images/Home/<?= $row['image'] ?>" alt="No Image">
         </div>
         <div class="aboutus-content sub-home-about flex">
             <h1>
                 Welcome to COMAAS.
             </h1>
-            <p>COMAS CO LTD. is a south Korean based company and founded in 2009. We are dedicated to supply High precision Rice sorters, Grain sorters, Peanut sorter, Tea sorter packaging machinery and scales to customers spread across the world.</p>
+            <p><?= $row['content'] ?>
+                <!-- COMAS CO LTD. is a south Korean based company and founded in 2009. We are dedicated to supply High precision Rice sorters, Grain sorters, Peanut sorter, Tea sorter packaging machinery and scales to customers spread across the world. -->
+            </p>
 
             <button class="btn"><a href="./about.php">Explore More</a></button>
         </div>
@@ -38,44 +115,51 @@
 
     <!-- mission vission and persons behinf section home  -->
     <div class="mvp-container flex">
+    <?php 
+        include("./zpress/connections/dbconnect.php");
+        $about_query = "Select * from `aboutus` where `id` = 1";
+        $about_res = mysqli_query($con,$about_query);
+        $row = mysqli_fetch_assoc($about_res);
+
+        ?>
         <div class="mvp-sub flex">
             <div class="mvp-image">
-                <img src="./Images/Home/Mission.jpg" alt="no Source">
+                <img src="./Images/Home/<?= $row['our_mission_image']?>" alt="no Source">
             </div>
             <div class="mvp-content flex">
                 <h1>
                     Mission
                 </h1>
                 <p>
-                    To supply a world class High precision sorters for Food grains, Quartz, plastics, Minerals and packaging machinery, scales and Rice mill machinery to the Food processing industry in the world.
+                <?= $row['our_mission']?>
                 </p>
                 <button class="btn"><a href="">Learn More-></a></button>
             </div>
         </div>
         <div class="mvp-sub flex">
             <div class="mvp-image">
-                <img src="./Images/Home/vision.png" alt="no Source">
+                <img src="./Images/Home/<?= $row['our_vision_image']?>" alt="no Source">
             </div>
             <div class="mvp-content flex">
                 <h1>
                     Vision
                 </h1>
                 <p>
-                    To become a Global Leader in Grain Sorting and packaging machinery Technology.
+                <?= $row['our_vision']?>
                 </p>
                 <button class="btn"><a href="">Learn More-></a></button>
             </div>
         </div>
         <div class="mvp-sub flex">
             <div class="mvp-image">
-                <img src="./Images/Home/person.png" alt="no Source">
+                <img src="./Images/Home/<?= $row['person_behind_image']?>" alt="No Source">
             </div>
             <div class="mvp-content flex">
                 <h1>
                     persons Behind
                 </h1>
                 <p>
-                    Mr.Jang Kyung Un is having enriched experience in design, development and deployment of Grain sorters. He was instrumental in design of first RGB technology (Tri-chromatic or full color) sorters in the World from Korea.
+                <?= $row['person_behind']?>
                 </p>
                 <button class="btn"><a href="">Learn More-></a></button>
             </div>
@@ -182,6 +266,68 @@
     <special-footbar></special-footbar>
 
     <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            const slides = document.querySelector('.slides');
+            const images = document.querySelectorAll('.slides img');
+
+            let counter = 0;
+            let slideWidth = images[0].clientWidth;
+            let intervalId;
+
+            // Calculate the width of slides dynamically
+            slides.style.width = `${images.length * 100}%`;
+
+            function slide() {
+                counter++;
+                if (counter === images.length) {
+                    counter = 0;
+                }
+                slides.style.transform = `translateX(-${slideWidth * counter}px)`;
+            }
+
+            function startTimer() {
+                intervalId = setInterval(slide, 4000);
+            }
+
+            startTimer();
+
+            document.querySelector('.prev').addEventListener('click', function () {
+                counter--;
+                if (counter < 0) {
+                    counter = images.length - 1;
+                }
+                slides.style.transition = 'transform 0.5s ease-in-out';
+                slides.style.transform = `translateX(-${slideWidth * counter}px)`;
+
+                clearInterval(intervalId);
+                startTimer();
+            });
+
+            document.querySelector('.next').addEventListener('click', function () {
+                counter++;
+                if (counter === images.length) {
+                    counter = 0;
+                }
+                slides.style.transition = 'transform 0.5s ease-in-out';
+                slides.style.transform = `translateX(-${slideWidth * counter}px)`;
+
+                clearInterval(intervalId);
+                startTimer();
+            });
+
+            window.addEventListener('resize', function () {
+                slideWidth = images[0].clientWidth;
+                slides.style.transition = 'none';
+                slides.style.transform = `translateX(-${slideWidth * counter}px)`;
+                setTimeout(() => {
+                    slides.style.transition = '';
+                }, 50);
+            });
+        });
+
+    </script>
 
     <script src="components.js"></script>
     <script src="./js/app.js"></script>

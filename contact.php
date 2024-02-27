@@ -30,6 +30,13 @@
                     <h1>Contact</h1>
                     <p>For Queries and Support,please Contact Us.</p>
                 </div>
+                <?php 
+                include("./zpress/connections/dbconnect.php");
+                $contact_query = "Select * from `basic_details`";
+                $contact_res = mysqli_query($con,$contact_query);
+                $row = mysqli_fetch_assoc($contact_res);
+
+                ?>
                 <!------division of icons ------>
                 <div class="social-media-flex-3"><!---flex-->
                     <div class="contact-container">
@@ -39,7 +46,7 @@
                 
                         <div class="contact-info">
                             <h6>Call us</h6>
-                            <p>+91 9440031617/8332999919</p>
+                            <p><?= $row['mobile_number'] ?></p>
                         </div>
                     </div>
                     <div class="gmail-container">
@@ -49,7 +56,7 @@
                 
                         <div class="contact-info">
                           <h6>Email us</h6>
-                          <p>sun.sortex@gmail.com</p>
+                          <p><?= $row['email'] ?></p>
                         </div>
                     </div>
                     <div class="social-container">
@@ -60,16 +67,16 @@
                         <h6>Follow us</h6>
                         <div class="icons-row-flex">
                           <div class="flex-icon">
-                            <a href="https://www.facebook.com/people/Comaas-COLTD/100085422796255/" target="_blank"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook -->
+                            <a href="<?= $row['facebook_link'] ?>" target="_blank"><i class="fa-brands fa-facebook"></i></a> <!-- Facebook -->
                           </div>
                           <div class="flex-icon">
                             <a href="https://www.instagram.com/comaas.info?igsh=MWpvbHBpOHVnem5hMA==" target="_blank"><i class="fa-brands fa-instagram"></i></a> <!-- Instagram -->
                           </div>
                           <div class="flex-icon">
-                            <a href="https://twitter.com/comaas_info" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> <!-- Twitter -->
+                            <a href="<?= $row['twitter_link'] ?>" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> <!-- Twitter -->
                           </div>
                           <div class="flex-icon">
-                            <a href="https://www.youtube.com/channel/UC-YO0zmU00HIWGPbYRc2AHA" target="_blank"><i class="fa-brands fa-youtube"></i></a> <!-- YouTube -->
+                            <a href="<?= $row['youtube_link'] ?>" target="_blank"><i class="fa-brands fa-youtube"></i></a> <!-- YouTube -->
                           </div>
                         </div>
                       </div>
@@ -119,11 +126,6 @@
     </section>
 
     <special-footbar></special-footbar>
-    <!-- <section class="sect3">
-        <div class="footer">
-            <h4>@Copyright 2024 — Vivekanand Degree College. All rights reserved.</h4>
-        </div>
-    </section> -->
 
     <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
 

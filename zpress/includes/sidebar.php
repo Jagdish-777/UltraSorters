@@ -54,7 +54,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./view_aboutus.php" class="nav-link">
+                <a href="./about_us.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View About</p>
                 </a>
