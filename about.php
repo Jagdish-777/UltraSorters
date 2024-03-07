@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    <div class="topTranslateBar">
+
+        <div class="address">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Code: 42902, Republic of Korea.</p>
+        </div>
+
+        <div class="phone">
+            <i class="fa-solid fa-phone"></i>
+            <p>0082-53-592-8257</p>
+        </div>
+
+        <div id="google_translate_element"></div>
+
+    </div>
 
     <special-navbar></special-navbar>
 
@@ -135,6 +150,13 @@
     <special-footbar></special-footbar>
 
     <script src="https://kit.fontawesome.com/b19824e628.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,mr,te,ko,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     
     <script src="components.js"></script>
     <script src="./js/app.js"></script>

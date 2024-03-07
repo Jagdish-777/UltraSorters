@@ -89,7 +89,7 @@ function handleFileUpload($fieldName, $existingImage) {
         move_uploaded_file($tempImage, "../Images/products/$newImage");
 
         // Delete the existing image
-        if ($existingImage && file_exists("../Images/products/$existingImage")) {
+        if ($existingImage && file_exists("../Images/products/$existingImage") && $existingImage !== $newImage) {
             unlink("../Images/products/$existingImage");
         }
         return $newImage;

@@ -37,58 +37,7 @@ include('includes/sidebar.php');
 
         <h1 class="mt-4 mb-4 text-center">About Us Form</h1>
 
-        <form action="about_us.php" enctype="multipart/form-data" method="post">
-            <div class="form-group">
-                <label for="content">Content</label>
-                <textarea class="form-control" id="content" name="content" rows="5"
-                    placeholder="Enter your content"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="image">Image Upload</label>
-                <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
-            </div>
-
-            <div class="form-group">
-                <label for="mission">Mission</label>
-                <textarea class="form-control" id="mission" name="mission" rows="3"
-                    placeholder="Enter your mission"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="missionImage">Mission Image</label>
-                <input type="file" class="form-control-file" id="missionImage" name="missionImage">
-            </div>
-
-            <div class="form-group">
-                <label for="vision">Vision</label>
-                <textarea class="form-control" id="vision" name="vision" rows="3"
-                    placeholder="Enter your vision"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="visionImage">Vision Image</label>
-                <input type="file" class="form-control-file" id="visionImage" name="visionImage">
-            </div>
-
-            <div class="form-group">
-                <label for="personBehind">Person Behind</label>
-                <textarea class="form-control" id="personBehind" name="personBehind" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="personBehindImage">Correspondent's Image</label>
-                <input type="file" class="form-control-file" id="personBehindImage" name="personBehindImage">
-            </div>
-
-            <button type="submit" class="btn btn-primary" name="about_us">Submit</button>
-        </form>
-
-    </div>
-
-    <!-- Include Bootstrap JS and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
 
 
 

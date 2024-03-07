@@ -1,4 +1,5 @@
 
+
 document.addEventListener('DOMContentLoaded', function () {
         let nav = document.querySelector('.menu-bar');
         let burger = document.querySelector('.burger');

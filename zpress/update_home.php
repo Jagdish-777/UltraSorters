@@ -1,9 +1,9 @@
 <?php
-include('./includes/connect.php');
+include('./connections/dbconnect.php');
 
 $id = $_GET['edit_id'];
 $fetch = "select * from home where id=$id";
-$result = mysqli_query($conn,$fetch);
+$result = mysqli_query($con,$fetch);
 $row = mysqli_fetch_assoc($result);
 $existingImage1 = $row['bgImage'];
 $existingImage2 = $row['image'];
@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($newImage1 != $existingImage1 || $newImage2 != $existingImage2 || $newContent != $content){
         // Update database with new image filenames
         $update_query = "UPDATE home SET bgImage=?, image=?, content=? WHERE id=?";
-        $stmt = mysqli_prepare($conn, $update_query);
+        $stmt = mysqli_prepare($con, $update_query);
         mysqli_stmt_bind_param($stmt, "sssi", $newImage1, $newImage2, $newContent, $id);
         $result = mysqli_stmt_execute($stmt);
 
@@ -42,11 +42,11 @@ function handleFileUpload($fieldName, $existingImage) {
         $tempImage = $_FILES[$fieldName]['tmp_name'];
 
         // Move the uploaded image
-        move_uploaded_file($tempImage, "./includes/images/$newImage");
+        move_uploaded_file($tempImage, "../Images/Home/$newImage");
 
         // Delete the existing image
-        if ($existingImage && file_exists("./includes/images/$existingImage")) {
-            unlink("./includes/images/$existingImage");
+        if ($existingImage && file_exists("../Images/Home/$existingImage") && $existingImage !== $newImage) {
+            unlink("../Images/Home/$existingImage");
         }
         return $newImage;
     } else {
@@ -57,20 +57,40 @@ function handleFileUpload($fieldName, $existingImage) {
 ?>
 
 
+<?php
+session_start();
 
-<!DOCTYPE html>
-<html lang="en">
+// Check if user is not logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect user to the login page
+    header("Location: login.php");
+    exit();
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
+include('./connections/dbconnect.php');
+include('includes/header.php');
+include('includes/navbar.php');
+include('includes/sidebar.php');
 
-</head>
+?>
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+              <li class="breadcrumb-item active">Update Home</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
 <body>
     <div class="container">
@@ -86,7 +106,7 @@ function handleFileUpload($fieldName, $existingImage) {
             </div>
             <div class="form-group">
                 <label for="content">Content:</label>
-                <textarea class="form-control" id="content" name="content" rows="5"></textarea>
+                <textarea class="form-control" id="content" name="content" rows="5" ><?php echo $content ?></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -97,5 +117,7 @@ function handleFileUpload($fieldName, $existingImage) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+    <?php
+include('includes/footer.php');
+
+?>

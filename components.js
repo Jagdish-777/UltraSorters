@@ -86,6 +86,7 @@ class SpecialfootBar extends HTMLElement{
             <div class="footer-2-link">
                 <i class="fa-solid fa-greater-than" style="color: #ffffff;"></i><a href="./contact.php#map">SiteMap</a>
             </div>
+            
         </div>
 
     </div>
@@ -166,7 +167,7 @@ class SpecialNavBar extends HTMLElement{
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="#">Packing Machinery</a></li>
+                            <li><a href="products.php?page=PACKING MACHINE">Packing Machinery</a></li>
                             <li><a href="products.php?page=Scales">Scales</a></li>
                         </ul>
                     </div>

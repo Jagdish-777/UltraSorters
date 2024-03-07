@@ -27,7 +27,7 @@ include('includes/sidebar.php');
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Testimonials</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -58,11 +58,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $tempImage = $_FILES['client_image']['tmp_name'];
 
         // Move the new image
-        move_uploaded_file($tempImage, "./includes/images/$newImage");
+        move_uploaded_file($tempImage, "../Images/Testimonials/$newImage");
 
         //delete the existing image
-        if($existingImage && file_exists("./includes/images/$existingImage")){
-            unlink("./includes/images/$existingImage");
+        if($existingImage && file_exists("../Images/Testimonials/$existingImage") && $existingImage !== $newImage){
+            unlink("../Images/Testimonials/$existingImage");
         }
         //update new image into database
         $update = "update testimonials set client_name='$client_name', client_comment='$client_comment', client_profession='$client_profession',
@@ -74,12 +74,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         client_image='$existingImage' where id=$id";
     }
 
-    $result = mysqli_query($conn, $update);
+    $result = mysqli_query($con, $update);
 
     if ($result) {
         echo "<script>alert('Updated successfully.')</script>";
     } else {
-        echo "<script>alert('Error: " . mysqli_error($conn) . "')</script>";
+        echo "<script>alert('Error: " . mysqli_error($con) . "')</script>";
     }
 }
 ?>

@@ -57,11 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // Check if a new image is uploaded
         if (!empty($newImage)) {
             // Move the new image
-            move_uploaded_file($tempImage, "./includes/images/$newImage");
+            move_uploaded_file($tempImage, "../Images/Technology/$newImage");
 
             // Delete the existing image
-            if ($existingImage && file_exists("./includes/images/$existingImage")) {
-                unlink("./includes/images/$existingImage");
+            if ($existingImage && file_exists("../Images/Technology/$existingImage") && $existingImage !== $newImage) {
+                unlink("../Images/Technology/$existingImage");
             }
         } else {
             // If no new image uploaded, keep the existing image as the new image

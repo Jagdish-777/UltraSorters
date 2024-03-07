@@ -60,8 +60,62 @@
         }
     
     </style>
+    <!-- top language css  -->
+    <style>
+        .topTranslateBar{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: #28231D;
+
+            width: 100%;
+            height: 40px;
+        }
+        
+        .topTranslateBar .address{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 50%;
+
+            color: #fff;
+        }
+        .topTranslateBar .address i{
+            font-size: 25px;
+            padding: 10px;
+        }
+        .topTranslateBar .phone{
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 25%;
+        }
+        .topTranslateBar .phone i{
+            font-size: 25px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="topTranslateBar">
+
+        <div class="address">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Code: 42902, Republic of Korea.</p>
+        </div>
+
+        <div class="phone">
+            <i class="fa-solid fa-phone"></i>
+            <p>0082-53-592-8257</p>
+        </div>
+
+        <div id="google_translate_element"></div>
+
+    </div>
+
     <special-navbar></special-navbar>
 
     <section class="slider">
@@ -202,7 +256,7 @@
             </div>
         </div>
         <div class="pts-image pts-sub">
-            <img src="./Images/Home/DSC_0708.jpg" alt="">
+            <img src="./Images/Home/DSC_0708.jfif" alt="">
         </div>
     </div>
     <!-- pts section end  -->
@@ -328,6 +382,13 @@
         });
 
     </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,mr,te,ko,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
     <script src="components.js"></script>
     <script src="./js/app.js"></script>

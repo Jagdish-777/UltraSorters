@@ -126,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <td>' . $content . '</td>
         <td>
         <button class="btn btn-primary"><a href="update_home.php?edit_id='.$id.'" class="text-light">Edit</a></button>
-        <button class="btn btn-danger"><a href="home.php?delete_id='.$id.'" class="text-light">Delete</a></button>
+        <button class="btn btn-danger"><a href="javascript:void()" onClick="chkalert('.$id.')" class="text-light">Delete</a></button>
         </td>
       </tr>';
       $serial_number++; // Increment the serial number for the next row
@@ -143,6 +143,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
+    <script type="text/javascript">
+        function chkalert(id){
+            sts = confirm('are you sure you want to delete it.');
+            if(sts){
+                document.location.href=`home.php?delete_id=${id}`
+            }
+        }
+    </script>
  
     <?php
 include('includes/footer.php');

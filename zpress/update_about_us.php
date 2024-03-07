@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         // Update database with new image filenames
         $update_query = "UPDATE aboutus SET content=?, image=?, our_mission=?, our_mission_image=?, our_vision=?, our_vision_image=?, person_behind=?, person_behind_image=? WHERE id=?";
-        $stmt = mysqli_prepare($conn, $update_query);
+        $stmt = mysqli_prepare($con, $update_query);
         mysqli_stmt_bind_param($stmt, "ssssssssi", $newContent, $newImage1, $newMission, $newImage2, $newVision, $newImage3, $newPersonBehind, $newImage4, $id);
         $result = mysqli_stmt_execute($stmt);
 
@@ -71,7 +71,7 @@ function handleFileUpload($fieldName, $existingImage) {
         move_uploaded_file($tempImage, "../Images/Home/$newImage");
 
         // Delete the existing image
-        if ($existingImage && file_exists("../Images/Home/$existingImage")) {
+        if ($existingImage && file_exists("../Images/Home/$existingImage") && $existingImage !== $newImage ) {
             unlink("../Images/Home/$existingImage");
         }
         return $newImage;

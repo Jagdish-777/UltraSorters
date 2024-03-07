@@ -126,21 +126,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //move uploaded file
     move_uploaded_file($temp_image,"../Images/products/$image");
-    move_uploaded_file($temp_bgimage, "./Images/products/$bgimage");
+    move_uploaded_file($temp_bgimage, "../Images/products/$bgimage");
 
-    //insert query
-    $insert_query = "insert into products(product_name,product_description,product_category,product_sub_category,image,bgImage) 
-    values('$name','$description',$category,$subcategory,'$image','$bgimage')";
-    $result = mysqli_query($con, $insert_query);
+    // Prepared statement to prevent SQL injection
+    $insert_query = "INSERT INTO products (product_name, product_description, product_category, product_sub_category, image, bgImage) 
+                     VALUES (?, ?, ?, ?, ?, ?)";
+    
+    // Prepare the statement
+    $stmt = mysqli_prepare($con, $insert_query);
+    
+    // Bind parameters
+    mysqli_stmt_bind_param($stmt, "ssiiss", $name, $description, $category, $subcategory, $image, $bgimage);
+    
+    // Execute the statement
+    $result = mysqli_stmt_execute($stmt);
+
     if ($result) {
-        echo "<script>alert('inserted successfully.'); window.location.href = 'products.php';</script>";
+        echo "<script>alert('Inserted successfully.'); window.location.href = 'products.php';</script>";
         exit();
     } else {
-        echo "<script>alert('Error in inserting'); window.location.href = 'products.php';</script>";
+        echo "<script>alert('Error in inserting.'); window.location.href = 'products.php';</script>";
         exit();
     }
 }
 ?>
+
 
 <div class="container mt-5">
         <h2 class="mb-4">Display Products</h2>
@@ -198,7 +208,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <td><img src="../Images/Products/' . $bgImage . '" alt="product_image" width="50"></td>
                                 <td>
                                     <button class="btn btn-primary"><a href="update_products.php?edit_id=' . $id . '" class="text-light">Edit</a></button>
-                                    <button class="btn btn-danger"><a href="products.php?delete_id=' . $id . '" class="text-light">Delete</a></button>
+                                    <button class="btn btn-danger"><a href="javascript:void()" onClick="chkalert('.$id.')" class="text-light">Delete</a></button>
                                 </td>
                             </tr>';
                         }
@@ -216,6 +226,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $(document).ready(function() {
             $('#example').DataTable();
         });
+    </script>
+    <script type="text/javascript">
+        function chkalert(id){
+            sts = confirm('are you sure you want to delete it.');
+            if(sts){
+                document.location.href=`products.php?delete_id=${id}`
+            }
+        }
     </script>
 
 
