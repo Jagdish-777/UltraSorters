@@ -48,6 +48,13 @@
         </h1>
     </div> -->
 
+    <div class="top-bar-section">
+        <img src="./Images/Career/Career bg.png" alt="No Image">
+        <h1 class="top-bar-heading">
+            Career
+        </h1>
+    </div>
+
     <h1 class="vdc-career-header">Application Form</h1>
     <br><br>
 

@@ -91,6 +91,40 @@ body {
   font-size: 20px;
   padding: 10px;
 }
+@media only screen and (max-width: 800px) {
+  .topTranslateBar{
+    height: auto;
+  }
+  .topTranslateBar .address {
+    width: 30%;
+  }
+  .topTranslateBar .address p{
+    font-size: 0.6rem;
+  }
+  
+  .topTranslateBar .address i {
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+  .topTranslateBar .phone {
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 25%;
+  }
+  .topTranslateBar .phone p{
+    font-size: 0.6rem;
+  }
+  
+  .topTranslateBar .phone i {
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+}
 
 /* navbar css  */
 

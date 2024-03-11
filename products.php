@@ -56,6 +56,21 @@ include('zpress/connections/functions.php');
             font-size: 1.4rem;
         }
 
+        @media only screen and (max-width: 800px) {
+            #product-details{
+                flex-direction: column;
+            }
+            .product-details-sub{
+                width: 95%;
+                margin: 0px auto;
+            }
+        
+            .product-details-sub img{
+                width: 100%;
+            }
+        
+        }
+
         #products-technology-section{
             width: 100%;
             margin: 20px 0px;

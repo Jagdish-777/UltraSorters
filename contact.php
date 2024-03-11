@@ -38,6 +38,13 @@
         </h1>
     </div> -->
 
+    <div class="top-bar-section">
+        <img src="./Images/Career/Contact bg.png" alt="No Image">
+        <h1 class="top-bar-heading">
+            Contact
+        </h1>
+    </div>
+
     <section class="sect1">
         <div class="part1"><!----flex------>
             <div class="col1-part1"><!------flex------>
