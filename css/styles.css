@@ -1748,5 +1748,16 @@ section {
   color: white;
   /* text-decoration: none; */
 }
+#bottom-footer-section p a i{
+  font-size: 1rem;
+  padding: 0px 5px;
+  color: #ffffff;
+}
+#bottom-footer-section p a i:hover{
+  color: var(--blue-color);
+}
+#bottom-footer-section p a:hover{
+  color: var(--blue-color);
+}
 
 /* footer css end  */

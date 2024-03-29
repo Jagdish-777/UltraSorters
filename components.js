@@ -93,10 +93,14 @@ class SpecialfootBar extends HTMLElement{
 
 </footer>
 <div id="bottom-footer-section">
-    <p>&#169<a href="./index.php">COMAAS CO LTD</a> All Rights Reserved </p>
-    <p class="bootom-footer-left">
-        Designed By - <a href="https://saanvikasolutions.com/" target="_blank">Saanvika Software Solutions</a>
-    </p>
+<p>
+    Designed By - <a href="https://saanvikasolutions.com/" target="_blank">Saanvika Software Solutions</a>
+    <a href="https://www.facebook.com/profile.php?id=61554504095624" target="_blank"><i class="fa-brands fa-facebook""></i></a>
+    <a href="https://www.instagram.com/saanvika.solutions/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href=mailto:“saanvika.solutions@gmail.com” target="_blank"><i class="fa-brands fa-google""></i></a>
+
+</p>
+<p class="bootom-footer-left">&#169<a href="./index.php">COMAAS CO LTD</a> All Rights Reserved </p>
 </div>
         `
     }
